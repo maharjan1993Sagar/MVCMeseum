@@ -1,0 +1,67 @@
+﻿
+@{
+              
+
+                ViewBag.Title = "Upload";
+}
+@section Styles{
+
+}
+<h2>Upload</h2>
+@using (Html.BeginForm("Upload", "Inventories", null, FormMethod.Post, new { @class = "dropzone", id = "dropzone", enctype = "multipart/form-data" }))
+{
+<div class="fallback">
+    <input type="file" name="File" multiple />
+</div>
+<input type="submit" value="Submit" id="btnSubmit" />//onclick = "uploadClicked()"
+}
+
+@section Scripts{
+    <script src="~/Scripts/dropzone.js"></script>
+    <script>
+        Dropzone.options.frmTarget = {
+            autoProcessQueue: false,
+            url: 'upload',//'upload_files.php',
+            init: function () {
+
+                var myDropzone = this;
+
+                // Update selector to match your button
+                $("#btnSubmit").click(function (e) {
+                    e.preventDefault();
+                    myDropzone.processQueue();
+                });
+
+                this.on('sending', function (file, xhr, formData) {
+                    // Append all form inputs to the formData Dropzone will POST
+                    var data = $('#dropzone').serializeArray();
+                    $.each(data, function (key, el) {
+                        formData.append(el.name, el.value);
+                    });
+                });
+            }
+        }
+        //$(function () {
+        //   let myDropzone = Dropzone.options.myAwesomeDropzone = {
+        //        paramName: "File[]", // The name that will be used to transfer the file
+        //        maxFilesize: 1024, // MB
+        //        acceptedFiles: "image/*",
+        //        uploadMultiple: true,
+        //        autoProcessQueue: false
+
+        //    };
+        //    $('#btnSubmit').on("click", function () {
+        //        myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+        //    });
+
+        //});
+            //function uploadClicked() {
+            //    var dz = Dropzone.forElement("#dropzone");
+            //    for (var i = 0; i < dz.files.length; i++) {
+            //        dz.filesQueue.push(dz.files[i]);
+            //                    }
+            //    dz.processQueue();
+            //}
+    </script>
+}
+

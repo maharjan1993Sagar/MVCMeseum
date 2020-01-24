@@ -1,0 +1,71 @@
+﻿@model Meseum.Models.NewsEvent
+
+@{
+    ViewBag.Title = "Create";
+}
+<h4>NewsEvent</h4>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="row">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title)
+
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category)
+
+            @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(model => model.UploadDate)
+
+            @Html.EditorFor(model => model.UploadDate, new { htmlAttributes = new { @class = "form-control", id = "txtDate" } })
+            @Html.ValidationMessageFor(model => model.UploadDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-12">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</div>
+            }
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+                <script>
+                    $(document).ready(function () {
+                        $("#txtDate").datepicker();
+                    })
+
+                </script>
+            }
+

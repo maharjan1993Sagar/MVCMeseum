@@ -1,0 +1,3 @@
+/Meseum/Admin/Images
+/Meseum/bin
+/Meseum/.vs
