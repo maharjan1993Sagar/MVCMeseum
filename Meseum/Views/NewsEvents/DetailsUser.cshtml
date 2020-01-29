@@ -1,0 +1,23 @@
+﻿@model Meseum.Models.NewsEvent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                News/Events
+            </div>
+            <div class="panel-body">
+                <h2>@Model.Title</h2>
+                <label>Category:</label>@Model.Category,<label> Uploaded Date:</label>@Model.UploadDate.ToShortDateString()
+                <p>@Model.Description</p>
+
+            </div>
+        </div>
+       
+    </div>
+</div>

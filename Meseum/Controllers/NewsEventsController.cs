@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,7 +21,10 @@ namespace Meseum.Controllers
         {
             return View(db.NewsEvents.ToList());
         }
-
+        public ActionResult IndexUser()
+        {
+            return View(db.NewsEvents.ToList());
+        }
         // GET: NewsEvents/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +40,21 @@ namespace Meseum.Controllers
             return View(newsEvent);
         }
 
+        public ActionResult DetailsUser(int? id)
+        {
+            if (id == null)
+            {
+                NewsEvent news = db.NewsEvents.LastOrDefault();
+                return View(news);
+               //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            NewsEvent newsEvent = db.NewsEvents.Find(id);
+            if (newsEvent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(newsEvent);
+        }
         // GET: NewsEvents/Create
         public ActionResult Create()
         {
@@ -121,6 +140,27 @@ namespace Meseum.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //public void uploadnow(HttpPostedFileWrapper upload)
+        //{
+        //    if (upload != null)
+        //    {
+        //        string ImageName = upload.FileName;
+        //        string path = System.IO.Path.Combine(Server.MapPath("~/Admin/Images/NewsEvent"), ImageName);
+        //        upload.SaveAs(path);
+        //    }
+        //}
+
+
+        //public ActionResult uploadPartial()
+        //{
+        //    var appData = Server.MapPath("~/Images/uploads");
+        //    var images = Directory.GetFiles(appData).Select(x => new imagesviewmodel
+        //    {
+        //        Url = Url.Content("/images/uploads/" + Path.GetFileName(x))
+        //    });
+        //    return View(images);
+        //}
 
         protected override void Dispose(bool disposing)
         {

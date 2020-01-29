@@ -8,6 +8,7 @@ namespace Meseum.ViewModel
 {
     public class InventoryDetails
     {
+        public List<Inventory> Inventories { get; set; }
         public Inventory  Inventory { get; set; }
         public List<Files> Files { get; set; }
     }

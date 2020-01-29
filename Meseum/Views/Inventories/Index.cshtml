@@ -8,9 +8,9 @@
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
         <script src="~/scripts/jquery-3.3.1.min.js"></script>
         <script src="~/scripts/bootstrap.min.js"></script>*@
-    <link href="~/Admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+
     <style type="text/css">
-        .video-frame {
+        /*.video-frame {
             width: 100%;
             height: 195px;
             border: 4px solid #dc3545;
@@ -27,7 +27,7 @@
             background-color: #dc3545;
             color: white;
             box-shadow: 1px 2px 4px #dc3545;
-        }
+        }*/
     </style>
 }
 <h2>Index</h2>
@@ -118,41 +118,55 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Upload File</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
             </div>
             @using (Html.BeginForm("Upload", "Inventories", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                <input id="txtId" name="Id" type="hidden" />
-                <div class="row">
-                    <label class="text text-danger" id="txtError"></label>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Images</label>
-                            <input type="file" name="Image" multiple />
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Audio</label>
-                            <input type="file" name="Audio" multiple />
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Video</label>
-                            <input type="file" name="Video" multiple />
-                        </div>
-                    </div>
+            <input id="txtId" name="Id" type="hidden" />
 
-                    <div class="col-md-3">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
+            <div class="row">
+                <label class="text text-danger" id="txtError"></label>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Images</label>
+                    <input type="file" name="Image" id="ImgFile" multiple />
                 </div>
+            </div>
+
+            <div class="col-md-12">
+                <div id="divImage"></div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Audio</label>
+                    <input type="file" name="Audio" id="AudFile" multiple />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div id="divImage"></div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Video</label>
+                    <input type="file" name="Video" id="VidFile" multiple />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="divImage"></div>
+            </div>
+
+
+            <div class="col-md-3">
+                <input type="submit" id="btnSubmit" value="Save" class="btn btn-primary" />
+            </div>
             }
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -160,71 +174,27 @@
 
     </div>
 </div>
-<div class="row">
-    <table id="tblAudio" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>File Size(MB)</th>
-                <th>Play Audio</th>
-            </tr>
-        </thead>
-        <tbody>
-            @*@foreach (var item in Model)
-                {*@
-            <tr>
 
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>
-                    <audio controls>
-                        <source src="~/Admin/Images/Inventories/2/Audio/2.mp3" type="audio/ogg">
-                    </audio>
-                </td>
-
-            </tr>
-            @* }*@
-        </tbody>
-    </table>
-
-</div>
-
-<div class="row">
-    @*@foreach (var item in Model)
-        {*@
-    @for (int i = 0; i < 5; i++)
-    {
-        <div class="col-sm-4 col-md-4 col-xs-12">
-            <div class="title">2</div>
-            <div class="video-frame">
-                <video style="width:100%; height:auto;" controls>
-                    <source src="~/Admin/Images/Inventories/2/Video/2.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </div>
-    }
-    @*}*@
-</div>  
 @section Scripts{
-
-
-    <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
     <script>
-        $(document).ready(function () {
-            $("body table tbody tr td a#btnUpload").click(function () {
-                $("#txtId").val($(this).attr("data-id"));
-                $('#myModal').modal('show');
+        $(function () {
+            $("#btnSubmit").click(function (e) {
+                if (($("#ImgFile"))[0].files.length > 0 || ($("#AudFile"))[0].files.length > 0 || ($("#VidFile"))[0].files.length > 0) {
+                    return true;
+                }
+                else {
+                    alert("No Files Selected. Please try again.");
+                    e.preventDefault();
+                }
             })
-            $('#tblAudio').DataTable();
-
-            $("audio").on("play", function () {
-                $("audio").not(this).each(function (index, audio) {
-                    audio.pause();
-                });
-            });
+            //$("#ImgFile").change(function () {
+            //    $files = ($(this))[0].files
+            //    var html = "";
+            //    for (var i = 0, l = $files.length; i < l; i++) {
+            //        html += '<input name="[' + i + '].image" value="' + $files[i].name + '">&nbsp<input type="checkbox" name="[' + i + '].imageStatus">Public<br/>';
+            //    }
+            //    $("#divImage").empty().append(html);
+            //})
         })
     </script>
 }

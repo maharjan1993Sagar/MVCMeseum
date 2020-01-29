@@ -19,7 +19,7 @@ namespace Meseum.Controllers
     public class InventoriesController : Controller
     {
         string[] AudioExt = { ".WAV", ".MID", ".MIDI", ".WMA", ".MP3", ".OGG", ".RMA" };
-        string[] ImageExt = { ".PNG", ".JPG", ".JPEG", ".BMP", ".GIF",".SVG" };
+        string[] ImageExt = { ".PNG", ".JPG", ".JPEG", ".BMP", ".GIF", ".SVG" };
         string[] VideoExt = { ".AVI", ".MP4", ".DIVX", ".WMV", "FLV", "MOV" };
 
         private MeseumContext db = new MeseumContext();
@@ -38,6 +38,12 @@ namespace Meseum.Controllers
             return View(inventories.ToList());
         }
 
+        public ActionResult IndexUser()
+        {
+            var inventories = db.Inventories.Include(i => i.Category).Include(i => i.Location);
+            return View(inventories.ToList());
+        }
+
         // GET: Inventories/Details/5
         public ActionResult Details(int? id)
         {
@@ -45,7 +51,7 @@ namespace Meseum.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Inventory inventory = db.Inventories.Include(m=>m.Files).First(m=>m.Id==id);
+            Inventory inventory = db.Inventories.Include(m => m.Files).First(m => m.Id == id);
             IEnumerable<Files> files = inventory.Files;
 
             InventoryDetails invDetails = new InventoryDetails { Inventory = inventory, Files = files.ToList() };
@@ -56,10 +62,36 @@ namespace Meseum.Controllers
             return View(invDetails);
         }
 
+        public ActionResult DetailsUser(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Inventory inventory = db.Inventories.Include(m => m.Files).First(m => m.Id == id);
+            IEnumerable<Files> files = inventory.Files;
+
+            InventoryDetails invDetails = new InventoryDetails { Inventory = inventory, Files = files.ToList() };
+            if (inventory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(invDetails);
+        }
         //public ActionResult Upload()
         //{
         //    return View();
         //}
+        public ActionResult Uploads()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Uploads(FormCollection col, List<HttpPostedFileBase> files)
+        {
+            ViewBag.message = files.Count + "Nos of files uploaded";
+            return View();
+        }
         [HttpPost]
         public ActionResult Upload(FormCollection col, List<HttpPostedFileBase> Image, List<HttpPostedFileBase> Audio, List<HttpPostedFileBase> Video)
         {
@@ -82,121 +114,127 @@ namespace Meseum.Controllers
                     Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories/" + id + "/Video"));
                 }
 
-
-                foreach (HttpPostedFileBase fi in Image)
+                if (Image.Count > 0)
                 {
-                    //Checking file is available to save.  
-                    if (fi != null)
+                    foreach (HttpPostedFileBase fi in Image)
                     {
-                        var InputFileName = Path.GetFileName(fi.FileName);
-                        int size = fi.ContentLength / 1000000;
-
-                        string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
-                        Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
-                        InputFileName = r.Replace(InputFileName, "");
-
-                        string extension = Path.GetExtension(fi.FileName);
-                        if (ImageExt.Contains(extension.ToUpper()))
+                        //Checking file is available to save.  
+                        if (fi != null)
                         {
-                            string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Image/" + InputFileName;
-                            var ServerSavePath = Path.Combine(path);
-                            //Save file to server folder  
-                            fi.SaveAs(ServerSavePath);
-                            if (System.IO.File.Exists(path))
-                            {
-                                Files file = new Files
-                                {
-                                    Name = InputFileName,
-                                    Size = size,
-                                    path = "~/Admin/Images/Inventories/" + id + "/Image/" + InputFileName,
-                                    Type = "Image",
-                                    InventoryId = Id,
-                                    UploadedBy = "Admin",
-                                    UploadedDate = DateTime.Now
-                                };
-                                db.Files.Add(file);
-                                db.SaveChanges();
+                            var InputFileName = Path.GetFileName(fi.FileName);
+                            int size = fi.ContentLength / 1000000;
 
+                            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+                            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                            InputFileName = r.Replace(InputFileName, "");
+
+                            string extension = Path.GetExtension(fi.FileName);
+                            if (ImageExt.Contains(extension.ToUpper()))
+                            {
+                                string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Image/" + InputFileName;
+                                var ServerSavePath = Path.Combine(path);
+                                //Save file to server folder  
+                                fi.SaveAs(ServerSavePath);
+                                if (System.IO.File.Exists(path))
+                                {
+                                    Files file = new Files
+                                    {
+                                        Name = InputFileName,
+                                        Size = size,
+                                        path = "~/Admin/Images/Inventories/" + id + "/Image/" + InputFileName,
+                                        Type = "Image",
+                                        InventoryId = Id,
+                                        UploadedBy = "Admin",
+                                        UploadedDate = DateTime.Now
+                                    };
+                                    db.Files.Add(file);
+                                    db.SaveChanges();
+
+                                }
                             }
+
                         }
-                        
                     }
-
                 }
-                foreach (HttpPostedFileBase fi in Audio)
+                if (Audio.Count > 0)
                 {
-                    //Checking file is available to save.  
-                    if (fi != null)
+                    foreach (HttpPostedFileBase fi in Audio)
                     {
-                        var InputFileName = Path.GetFileName(fi.FileName);
-                        int size = fi.ContentLength / 1000000;
-
-                        string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
-                        Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
-                        InputFileName = r.Replace(InputFileName, "");
-
-                        string extension = Path.GetExtension(fi.FileName);
-                        if (AudioExt.Contains(extension.ToUpper()))
+                        //Checking file is available to save.  
+                        if (fi != null)
                         {
-                            string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Audio/" + InputFileName;
-                            var ServerSavePath = Path.Combine(path);
-                            //Save file to server folder  
-                            fi.SaveAs(ServerSavePath);
-                            if (System.IO.File.Exists(path))
-                            {
-                                Files file = new Files
-                                {
-                                    Name = InputFileName,
-                                    Size = size,
-                                    path = "~/Admin/Images/Inventories/" + id + "/Audio/" + InputFileName,
-                                    Type = "Audio",
-                                    InventoryId = Id,
-                                    UploadedBy = "Admin",
-                                    UploadedDate = DateTime.Now
-                                };
-                                db.Files.Add(file);
-                                db.SaveChanges();
+                            var InputFileName = Path.GetFileName(fi.FileName);
+                            int size = fi.ContentLength / 1000000;
 
+                            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+                            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                            InputFileName = r.Replace(InputFileName, "");
+
+                            string extension = Path.GetExtension(fi.FileName);
+                            if (AudioExt.Contains(extension.ToUpper()))
+                            {
+                                string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Audio/" + InputFileName;
+                                var ServerSavePath = Path.Combine(path);
+                                //Save file to server folder  
+                                fi.SaveAs(ServerSavePath);
+                                if (System.IO.File.Exists(path))
+                                {
+                                    Files file = new Files
+                                    {
+                                        Name = InputFileName,
+                                        Size = size,
+                                        path = "~/Admin/Images/Inventories/" + id + "/Audio/" + InputFileName,
+                                        Type = "Audio",
+                                        InventoryId = Id,
+                                        UploadedBy = "Admin",
+                                        UploadedDate = DateTime.Now
+                                    };
+                                    db.Files.Add(file);
+                                    db.SaveChanges();
+
+                                }
                             }
+
                         }
-
                     }
-
                 }
-                foreach (HttpPostedFileBase fi in Video)
+                if (Video.Count > 0)
                 {
-                    //Checking file is available to save.  
-                    if (fi != null)
+                    foreach (HttpPostedFileBase fi in Video)
                     {
-                        var InputFileName = Path.GetFileName(fi.FileName);
-                        int size = fi.ContentLength / 1000000;
-
-                        string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
-                        Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
-                        InputFileName = r.Replace(InputFileName, "");
-
-                        string extension = Path.GetExtension(fi.FileName);
-                        if (VideoExt.Contains(extension.ToUpper()))
+                        //Checking file is available to save.  
+                        if (fi != null)
                         {
-                            string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Video/" + InputFileName;
-                            var ServerSavePath = Path.Combine(path);
-                            //Save file to server folder  
-                            fi.SaveAs(ServerSavePath);
-                            if (System.IO.File.Exists(path))
-                            {
-                                Files file = new Files
-                                {
-                                    Name = InputFileName,
-                                    Size = size,
-                                    path = "~/Admin/Images/Inventories/" + id + "/Video/" + InputFileName,
-                                    Type = "Video",
-                                    InventoryId = Id,
-                                    UploadedBy = "Admin",
-                                    UploadedDate = DateTime.Now
-                                };
-                                db.Files.Add(file);
-                                db.SaveChanges();
+                            var InputFileName = Path.GetFileName(fi.FileName);
+                            int size = fi.ContentLength / 1000000;
 
+                            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+                            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                            InputFileName = r.Replace(InputFileName, "");
+
+                            string extension = Path.GetExtension(fi.FileName);
+                            if (VideoExt.Contains(extension.ToUpper()))
+                            {
+                                string path = Server.MapPath("~/Admin/Images/Inventories/") + id + "/Video/" + InputFileName;
+                                var ServerSavePath = Path.Combine(path);
+                                //Save file to server folder  
+                                fi.SaveAs(ServerSavePath);
+                                if (System.IO.File.Exists(path))
+                                {
+                                    Files file = new Files
+                                    {
+                                        Name = InputFileName,
+                                        Size = size,
+                                        path = "~/Admin/Images/Inventories/" + id + "/Video/" + InputFileName,
+                                        Type = "Video",
+                                        InventoryId = Id,
+                                        UploadedBy = "Admin",
+                                        UploadedDate = DateTime.Now
+                                    };
+                                    db.Files.Add(file);
+                                    db.SaveChanges();
+
+                                }
                             }
                         }
 
@@ -248,38 +286,11 @@ namespace Meseum.Controllers
                 {
                     Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories/Thumb"));
                 }
-                if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/Inventories"))))
-                {
-                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories"));
-                }
-
-                if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/Inventories/") + id.ToString())))
-                {
-                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories/" + id.ToString()));
-                }
-
                 if (inventoryVM.File != null)
                 {
                     inventoryVM.File.SaveAs(Server.MapPath("~/Admin/Images/Inventories/Thumb/") + id.ToString() + ".jpg");
                 }
-                foreach (HttpPostedFileBase fi in files)
-                {
-                    //Checking file is available to save.  
-                    if (fi != null)
-                    {
-                        var InputFileName = Path.GetFileName(fi.FileName);
-                        string extension = Path.GetExtension(fi.FileName);
-                        if (extension.ToLower() == ".jpg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif" || extension.ToLower() == ".jpeg")
-                        {
-                            var ServerSavePath = Path.Combine(Server.MapPath("~/Admin/Images/Inventories/") + id + "/" + InputFileName);
-                            //Save file to server folder  
-                            fi.SaveAs(ServerSavePath);
-                        }
-                        //assigning file uploaded status to ViewBag for showing message to user.  
-                        ViewBag.UploadStatus = files.Count().ToString() + " files uploaded successfully.";
-                    }
 
-                }
                 return RedirectToAction("Index");
             }
 
@@ -357,38 +368,13 @@ namespace Meseum.Controllers
                     Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories/Thumb"));
                 }
 
-                if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/Inventories"))))
-                {
-                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories"));
-                }
 
-                if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/Inventories/") + id.ToString())))
-                {
-                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Inventories/" + id.ToString()));
-                }
                 if (inventoryVM.File != null)
                 {
                     inventoryVM.File.SaveAs(Server.MapPath("~/Admin/Images/Inventories/Thumb/") + id.ToString() + ".jpg");
                 }
 
-                foreach (HttpPostedFileBase fi in files)
-                {
-                    //Checking file is available to save.  
-                    if (fi != null)
-                    {
-                        var InputFileName = Path.GetFileName(fi.FileName);
-                        string extension = Path.GetExtension(fi.FileName);
-                        if (extension == ".jpg" || extension == ".png" || extension == ".gif" || extension == ".jpeg")
-                        {
-                            var ServerSavePath = Path.Combine(Server.MapPath("~/Admin/Images/Inventories/") + id + "/" + InputFileName);
-                            //Save file to server folder  
-                            fi.SaveAs(ServerSavePath);
-                        }
-                        //assigning file uploaded status to ViewBag for showing message to user.  
-                        ViewBag.UploadStatus = files.Count().ToString() + " files uploaded successfully.";
-                    }
 
-                }
                 return RedirectToAction("Index");
             }
             inventoryVM.Categories = new SelectList(db.Categories, "Id", "Name", inventoryVM.CategoryId);

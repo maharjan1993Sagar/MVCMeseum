@@ -1,31 +1,151 @@
-﻿@{
+﻿@model Meseum.ViewModel.HomeVM
+@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-12">
+        <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <a href="#">
+                        <img src="~/user/images/1.jpg" alt="" style="width: 100%;
+                                    height: 420px; overflow: hidden;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h2>
+                            <p>Patan Meseum</p>
+                        </h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="~/user/images/2.jpg" alt="" style="width: 100%;
+                                    height: 420px; overflow: hidden;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h2>
+                            <p>Patan Meseum</p>
+                        </h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="~/user/images/3.jpg" alt="" style="width: 100%;
+                                    height: 420px; overflow: hidden;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h2>
+                            <p>Patan Meseum</p>
+                        </h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="~/user/images/4.jpg" alt="" style="width: 100%;
+                                    height: 420px; overflow: hidden;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h2>
+                            <p>Patan Meseum</p>
+                        </h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="~/user/images/5.jpg" alt="" style="width: 100%;
+                                    height: 420px; overflow: hidden;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h2>
+                            <p>Patan Meseum</p>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end banner -->
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-12">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <label>
+                    <i class="fa fa-list"></i> Welcome to Patan Meseum
+                </label>
+            </div>
+            <div class="panel-body">
+
+                <p>
+                    In an International Campaign by UNESCO for safeguarding the monuments of Kathmandu valley, the Austrian Government joined hands with Nepal Government to preserve Patan Darbar Square. The ensuing project began in 1982 with the repair of Keshav Narayan Chowk that led finally to the transformation of a teaching museum to dessimination of knowldge on Buddhism prevailed in Patan- city of Art and Architecture.
+                </p>
+                <p>
+                    This is the first public museum in Nepal that has been created as an autonomous institution of this type managed by&nbsp;its own Board of Directors. The museum has been acclaimed, by the visitors, as one of the finest museums in South Asia. The popularity is growing day after day and is economically self sustained now.
+                </p>
+                <p>
+                    The collaborative effort of Austrian Government&nbsp;with Nepalese&nbsp;counterpart&nbsp;did not only restore the historical palace to its original grandeuer but also&nbsp;created&nbsp;a Model Cultural Institution in Nepal.
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <div class="col-md-12"> <h2>Inventories</h2></div>
+    @foreach (var item in Model.Inventories.ToList().Take(6))
+    {
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @item.Name
+                </div>
+                <div class="panel-body">
+                    <img src="~/Admin/Images/Inventories/Thumb/@(item.Id+".jpg")" style="height:50px;width:50px;" onerror="this.onerror=null;this.src='/Admin/notfound.jpg'"><br />
+                    <label>Location:</label>@item.Location.Name<br />
+                    <label>Category:</label>@item.Category.Name<br />
+                    <label>Made by:</label>@item.MadeBy<br />
+                    <label>Origin of:</label>@item.OriginOf<br />
+                    <label>Object Code:</label>@item.ObjectCode<br />
+                    <label>Material:</label>@item.Material<br />
+                    <a href='@Url.Action("DetailsUser","Inventories",new {id=item.Id })' class="btn btn-default">Details.</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-md-12">
+        <a href='@Url.Action("IndexUser","Inventories")' class="btn btn-primary pull-right">See More..</a>
+    </div>
+    <div class="col-md-12">
+        <h2>News/Event</h2>
+    </div>
+    @foreach (var item in Model.NewsEvents.Take(6))
+    {
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @item.Title
+                </div>
+                <div class="panel-body">
+                    <label>Title:</label>@item.Title<br />
+                    <label>Category:</label>@item.Category<br />
+                    <label>Uploaded Date:</label>@item.UploadDate.ToShortDateString()<br />
+                    <label>Descriptions:</label>@item.Description<br />
+                    <a href='@Url.Action("DetailsUser","NewsEvents",new {id=item.Id })' class="btn btn-default">Details..</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-md-12">
+        <a href='@Url.Action("IndexUser","NewsEvents")' class="btn btn-primary pull-right">See More..</a>
     </div>
 </div>
