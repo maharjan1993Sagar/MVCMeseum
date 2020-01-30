@@ -117,3 +117,6 @@ E:\Projects\Meseum\Meseum\obj\Release\Meseum.dll
 E:\Projects\Meseum\Meseum\obj\Release\Meseum.pdb
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.File.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.Files.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.AddSomeTables.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.banner.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.someChagnes.resources

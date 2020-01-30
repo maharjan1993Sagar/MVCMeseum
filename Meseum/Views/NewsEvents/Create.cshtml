@@ -42,8 +42,8 @@
         <div class="col-md-12">
             <div class="form-group">
                 @Html.LabelFor(model => model.Description)
-               @* @Html.CkeditorFor(model => model.Description, new { id = "txtDesc" })*@
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @id = "txtDesc", @class = "form-control" } })
+            @Html.CkeditorFor(model => model.Description, new { id = "txtDesc" })
+                @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @id = "txtDesc", @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>

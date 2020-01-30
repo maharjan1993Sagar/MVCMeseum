@@ -1887,7 +1887,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header hr {
   border-color: rgba(255, 255, 255, 0.3);
-  margin-top: 5px;
+  /*margin-top: 5px;*/
 }
 
 .header-top {
@@ -2292,8 +2292,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-  background: url(../img/header-bg.jpg) center;
-  background-size: cover;
+    background: url(../img/header-bg1.jpg) center;
+    background-size: cover;
+    min-height:425px;
 }
 
 .banner-area .overlay-bg {
@@ -2301,8 +2302,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-content {
-  margin-top: -90px;
-  text-align: center;
+    margin-top: 10px;/*-90px;*/
+    text-align: center;
 }
 
 .banner-content h1 {

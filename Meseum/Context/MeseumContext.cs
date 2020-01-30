@@ -19,7 +19,14 @@ namespace Meseum.Context
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<NewsEvent> NewsEvents { get; set; }
         public DbSet<Posture> Postures { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Events> Events { get; set; }
+        public DbSet<Gallery> Gallery { get; set; }
+        public DbSet<Link> Links { get; set; }
+        public DbSet<Queries> Queries { get; set; }
         public DbSet<Files> Files { get; set; }
-
+        public DbSet<ImageFile> ImageFile { get; set; }
+        public DbSet<Banner> Banners { get; set; }
     }
 }
