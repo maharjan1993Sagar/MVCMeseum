@@ -3456,7 +3456,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: none;
   background: #f9f9ff;
 }
-
+.full-div {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
 /*
 ################
                End Blog Details  Page style
