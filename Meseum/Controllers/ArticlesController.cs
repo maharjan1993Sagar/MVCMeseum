@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,17 +49,22 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(Article article, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
+                if (!Directory.Exists(Server.MapPath("~/Admin/Images/Article")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Article"));
+                }
                 if (Image != null)
                 {
                     Image.SaveAs(Server.MapPath("~/Admin/Images/Article/" + Image.FileName));
                     ImageFile file = new ImageFile
                     {
                         Name = Image.FileName,
-                        Size = Image.ContentLength / 10000,
+                        Size = Image.ContentLength / 1000000,
                         path = "~/Admin/Images/Article/" + Image.FileName,
                         Type = "Image",
                         UploadedBy = "Admin",
@@ -103,12 +109,17 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(Article article,HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
                 if (Image != null)
                 {
+                    if (!Directory.Exists(Server.MapPath("~/Admin/Images/Article")))
+                    {
+                        Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Article"));
+                    }
                     if (article.File != null)
                     {
                         db.ImageFile.Remove(article.File);

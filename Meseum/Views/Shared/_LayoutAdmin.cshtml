@@ -43,22 +43,23 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
-            @*<li class="nav-item">
+            <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
-                        <span>Master Setup</span>
+                        <span>Website CMS</span>
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" asp-controller="Lab" asp-action="index">Lab Register</a>
-                            <a class="collapse-item" asp-controller="ownerkeeper" asp-action="index">Owner Register</a>
-                            <a class="collapse-item" asp-controller="keeper" asp-action="index">Keeper Register</a>
-                            <a class="collapse-item" asp-controller="farm" asp-action="index">Farm Register</a>
-                            <a class="collapse-item" asp-controller="breed" asp-action="index">Breed Register</a>
-                            <a class="collapse-item" asp-controller="species" asp-action="index">Species Register</a>
+                            <a class="collapse-item" href="@Url.Action("Index","AboutUs")">About Us</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Galleries")">Gallery</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Links")">Links</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Events")">Events</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Banners")">Banner</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Articles")">Articles</a>
+                       
                         </div>
                     </div>
-                </li>*@
+                </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "Locations")">

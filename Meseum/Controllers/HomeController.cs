@@ -21,7 +21,13 @@ namespace Meseum.Controllers
         }
         public ActionResult IndexUser()
         {
-            return View();
+            HomeVM home = new HomeVM();
+            home.Inventories = db.Inventories;
+            home.NewsEvents = db.NewsEvents;
+            home.Galleries = db.Gallery.Include(m=>m.Files);
+            home.Events = db.Events.Include(m => m.Files);
+            home.AboutUs = db.AboutUs.Include(m => m.File);
+            return View(home);
         }
         public ActionResult About()
         {
@@ -35,6 +41,21 @@ namespace Meseum.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetBanner()
+        {
+            IEnumerable<string> urls = (from b in db.Banners
+                                select b.Image.path).AsEnumerable();
+            return Json(urls);
+        }
+        [HttpPost]
+        public JsonResult GetAboutUs()
+        {
+            IEnumerable<string> AboutUs = (from a in db.AboutUs
+                                select a.MenuName).AsEnumerable();
+            return Json(AboutUs);
         }
     }
 }

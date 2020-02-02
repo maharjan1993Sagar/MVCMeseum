@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Meseum.Context;
 using Meseum.Models;
+using Meseum.ViewModel;
 
 namespace Meseum.Controllers
 {
@@ -42,13 +43,14 @@ namespace Meseum.Controllers
 
         public ActionResult DetailsUser(int? id)
         {
+            NewsDetails news = new NewsDetails();
+            news.RecentNews = db.NewsEvents.Include(m=>m.Files);
             if (id == null)
             {
-                NewsEvent news = db.NewsEvents.LastOrDefault();
+               news.News = db.NewsEvents.Include(m=>m.Files).LastOrDefault();
                 return View(news);
-               //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewsEvent newsEvent = db.NewsEvents.Find(id);
+            NewsEvent newsEvent = db.NewsEvents.Include(m => m.Files).FirstOrDefault(m=>m.Id==id);
             if (newsEvent == null)
             {
                 return HttpNotFound();

@@ -247,6 +247,14 @@
     <Compile Include="Migrations\202001301002566_someChagnes.Designer.cs">
       <DependentUpon>202001301002566_someChagnes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001310541566_detailsinaboutus.cs" />
+    <Compile Include="Migrations\202001310541566_detailsinaboutus.Designer.cs">
+      <DependentUpon>202001310541566_detailsinaboutus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002020249189_ImageToNews.cs" />
+    <Compile Include="Migrations\202002020249189_ImageToNews.Designer.cs">
+      <DependentUpon>202002020249189_ImageToNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -273,6 +281,9 @@
     <Compile Include="Models\Posture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\NewsDetails.cs" />
+    <Compile Include="ViewModel\EventDetails.cs" />
+    <Compile Include="ViewModel\BannerImage.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\InventoryDetails.cs" />
     <Compile Include="ViewModel\InventoryVM.cs" />
@@ -288,6 +299,38 @@
     <Content Include="Admin\css\sb-admin-2.min.css" />
     <Content Include="Admin\forgot-password.html" />
     <Content Include="Admin\gulpfile.js" />
+    <Content Include="Admin\Images\AboutUs\download %281%29.jpg" />
+    <Content Include="Admin\Images\AboutUs\download.jpg" />
+    <Content Include="Admin\Images\Article\download %281%29.jpg" />
+    <Content Include="Admin\Images\Article\Mile Ho Tum - Reprise Version Neha Kakkar Tony Kakkar Fever.mp3" />
+    <Content Include="Admin\Images\Banner\download %283%29.jpg" />
+    <Content Include="Admin\Images\Banner\download.jpg" />
+    <Content Include="Admin\Images\Banner\header-bg1.jpg" />
+    <Content Include="Admin\Images\Banner\patan.jpg" />
+    <Content Include="Admin\Images\Banner\patan1.jpg" />
+    <Content Include="Admin\Images\Banner\patan2.jpg" />
+    <Content Include="Admin\Images\Banner\patan3.jpg" />
+    <Content Include="Admin\Images\Banner\patan8.jpg" />
+    <Content Include="Admin\Images\Events\1\download %281%29.jpg" />
+    <Content Include="Admin\Images\Events\1\download %283%29.jpg" />
+    <Content Include="Admin\Images\Events\1\download %284%29.jpg" />
+    <Content Include="Admin\Images\Events\1\download.jpg" />
+    <Content Include="Admin\Images\Events\2\download %284%29.jpg" />
+    <Content Include="Admin\Images\Events\2\download.jpg" />
+    <Content Include="Admin\Images\Events\3\download.jpg" />
+    <Content Include="Admin\Images\Events\4\download %281%29.jpg" />
+    <Content Include="Admin\Images\Events\4\download %283%29.jpg" />
+    <Content Include="Admin\Images\Gallery\1\download %281%29.jpg" />
+    <Content Include="Admin\Images\Gallery\1\download %283%29.jpg" />
+    <Content Include="Admin\Images\Gallery\1\download %284%29.jpg" />
+    <Content Include="Admin\Images\Gallery\2\download %281%29.jpg" />
+    <Content Include="Admin\Images\Gallery\2\download %283%29.jpg" />
+    <Content Include="Admin\Images\Gallery\2\download %284%29.jpg" />
+    <Content Include="Admin\Images\Gallery\2\download.jpg" />
+    <Content Include="Admin\Images\Gallery\3\download %281%29.jpg" />
+    <Content Include="Admin\Images\Gallery\3\download %283%29.jpg" />
+    <Content Include="Admin\Images\Gallery\3\download %284%29.jpg" />
+    <Content Include="Admin\Images\Gallery\3\download.jpg" />
     <Content Include="Admin\Images\Inventories\Thumb\20.jpg" />
     <Content Include="Admin\Images\Inventories\Thumb\21.jpg" />
     <Content Include="Admin\Images\Inventories\Thumb\22.jpg" />
@@ -2085,6 +2128,8 @@
     <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Admin\vendor\jquery\jquery.min.map" />
     <Content Include="Admin\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Admin\Images\Article\25877494.pdf" />
+    <Content Include="Admin\Images\Article\CV_SAGARMAHARJAN.docx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
@@ -2907,6 +2952,11 @@
     <Content Include="Views\Banners\Details.cshtml" />
     <Content Include="Views\Banners\Edit.cshtml" />
     <Content Include="Views\Banners\Index.cshtml" />
+    <Content Include="Views\Links\Details - Copy.cshtml" />
+    <Content Include="Views\Events\DetailsUser.cshtml" />
+    <Content Include="Views\Galleries\Gallery.cshtml" />
+    <Content Include="Views\Galleries\DetailsUser.cshtml" />
+    <Content Include="Views\AboutUs\DetailsUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2951,6 +3001,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001301002566_someChagnes.resx">
       <DependentUpon>202001301002566_someChagnes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001310541566_detailsinaboutus.resx">
+      <DependentUpon>202001310541566_detailsinaboutus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002020249189_ImageToNews.resx">
+      <DependentUpon>202002020249189_ImageToNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

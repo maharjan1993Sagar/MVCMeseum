@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Edit", "AboutUs", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>AboutUs</h4>
         <hr />
@@ -47,6 +47,14 @@
                 @Html.ValidationMessageFor(model => model.UploadedBy, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="col-md-12">
             <div class="form-group">
                 <label>Image</label>
@@ -65,3 +73,9 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section scripts{
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Details');
+    </script>
+}

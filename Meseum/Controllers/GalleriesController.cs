@@ -23,6 +23,11 @@ namespace Meseum.Controllers
             return View(db.Gallery.ToList());
         }
 
+        public ActionResult DetailsUser()
+        {
+            return View(db.Gallery.Include(m=>m.Files));
+        }
+
         // GET: Galleries/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,7 +42,19 @@ namespace Meseum.Controllers
             }
             return View(gallery);
         }
-
+        public ActionResult Gallery(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("DetailsUser");
+            }
+            Gallery gallery = db.Gallery.Include(m=>m.Files).FirstOrDefault(m=>m.Id==id);
+            if (gallery == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gallery);
+        }
         // GET: Galleries/Create
         public ActionResult Create()
         {

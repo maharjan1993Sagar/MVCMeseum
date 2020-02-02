@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Meseum.Context;
 using Meseum.Models;
+using Meseum.ViewModel;
 
 namespace Meseum.Controllers
 {
@@ -37,6 +38,21 @@ namespace Meseum.Controllers
             }
             return View(events);
         }
+        public ActionResult DetailsUser(int? id)
+        {
+            EventDetails events = new EventDetails();
+            events.RecentEvents = db.Events.Include(m => m.Files);
+            if (id == null)
+            {
+                events.Event = db.Events.Include(m => m.Files).FirstOrDefault();
+            }
+             events.Event = db.Events.Include(m=>m.Files).FirstOrDefault(m=>m.Id==id);
+            if (events == null)
+            {
+                return HttpNotFound();
+            }
+            return View(events);
+        }
 
         // GET: Events/Create
         public ActionResult Create()
@@ -50,6 +66,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(Events events,List<HttpPostedFileBase> Images)
         {
             if (ModelState.IsValid)
@@ -142,6 +159,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(Events events, List<HttpPostedFileBase> Images)
         {
             if (ModelState.IsValid)

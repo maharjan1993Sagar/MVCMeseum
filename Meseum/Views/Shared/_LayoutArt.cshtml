@@ -58,28 +58,25 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="event.html">Events</a></li>
-                        <li><a href="ticket.html">Meseum Building</a></li>
-                        <li><a href="blog-home.html">Quries/Comments</a></li>
-                        <li><a href="blog-home.html">Related Links</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        @*<li class="menu-has-children">
-                            <a href="">Pages</a>
-                            <ul>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                                <li><a href="category.html">Category</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                            </ul>
-                        </li>*@
+                        <li class="menu-active"><a href="@Url.Action("IndexUser","Home")">Home</a></li>
+                        <li class="menu-has-children">
+                            <a href="#">About</a>
+                            <ul id="About"></ul>
+                        </li>
+                        <li><a href="@Url.Action("DetailsUser","Galleries")">Gallery</a></li>
+                        <li><a href="@Url.Action("DetailsUser","Events")">Events</a></li>
+                        <li><a href="@Url.Action("DetailsUser","NewsEvents")">News and Notice</a></li>
+                        <li><a href="#">Meseum Building</a></li>
+                        <li><a href="#">Quries/Comments</a></li>
+                        <li><a href="#">Related Links</a></li>
+                        <li><a href="#">Contact</a></li>
+
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
         </div>
     </header><!-- #header -->
-   @RenderBody()
+    @RenderBody()
     <!-- start footer Area -->
     <footer class="footer-area section-gap">
         <div class="container">
@@ -148,15 +145,54 @@
     <script src="~/usertemp/js/mail-script.js"></script>
     <script src="~/usertemp/js/main.js"></script>
     <script>
-      
+        var urls = [];
         $(function () {
-            var urls = ['@Url.Content("~/UserTemp/img/header-bg1.jpg")', '@Url.Content("~/UserTemp/img/patan1.jpg")', '@Url.Content("~/UserTemp/img/patan2.jpg")', '@Url.Content("~/UserTemp/img/patan3.jpg")'
-                , '@Url.Content("~/UserTemp/img/patan4.jpg")'];
+            var RootUrl = '@Url.Content("~/")';
+            
+
+                     $.ajax({
+                        async: false,
+                        type: "POST",
+                        dataType: "json",
+                        //data: "{'earTag':'" + ear + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        url: RootUrl + 'Home/GetBanner',
+                        success: function (response) {
+                            if (response.length > 0) {
+                                for (var i = 0; i < response.length; i++) {
+                                    urls.push(RootUrl+response[i].slice(2));
+                                }
+                            }
+
+                        }
+                    })
+
+            $.ajax({
+                async: false,
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                url: RootUrl + 'Home/GetAboutUs',
+                success: function (response) {
+                    var AboutUs = "";
+                    if (response.length > 0) {
+                        for (var i = 0; i < response.length; i++) {
+                            AboutUs =AboutUs +'<li><a href="@Url.Action("DetailsUser","AboutUs")?title=' + response[i] + '">'+response[i].toUpperCase()+'</a></li>'
+                            
+                        }
+                        $("li ul#About").append(AboutUs);
+                    }
+
+                }
+            })
+
 
             var cout = 1;
-            //$('.banner-area').css('background', 'url("' + urls[0] + '")');
+
             setInterval(function () {
-                $('.banner-area').css('background', 'url("' + urls[cout] + '")');
+
+                $('.banner-area').css('background-size', 'cover');
+                $('.banner-area').css('background', 'url("' + urls[cout] + '") center');
                 cout == urls.length - 1 ? cout = 0 : cout++;
             }, 5000);
 

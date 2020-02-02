@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Meseum.ViewModel.HomeVM
+@{
     Layout = "~/Views/Shared/_LayoutArt.cshtml";
 }
 
@@ -8,77 +9,76 @@
     <div class="container">
         <div class="row fullscreen d-flex align-items-center justify-content-center">
             <!--Carousel Wrapper-->
-           
             @*<div id="carousel-example-2" class="full-div carousel slide carousel-fade" data-ride="carousel">
-                <!--Indicators-->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="2"></li>
-                </ol>
-                <!--/.Indicators-->
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="view">
-                            <img  class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                                 alt="First slide">
-                            <div class="mask rgba-black-light"></div>
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                    </ol>
+                    <!--/.Indicators-->
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <div class="view">
+                                <img  class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                                     alt="First slide">
+                                <div class="mask rgba-black-light"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Light mask</h3>
+                                <p>First text</p>
+                            </div>
                         </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Light mask</h3>
-                            <p>First text</p>
+                        <div class="carousel-item">
+                            <!--Mask color-->
+                            <div class="view">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                                     alt="Second slide">
+                                <div class="mask rgba-black-strong"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Strong mask</h3>
+                                <p>Secondary text</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!--Mask color-->
+                            <div class="view">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                                     alt="Third slide">
+                                <div class="mask rgba-black-slight"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Slight mask</h3>
+                                <p>Third text</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                                 alt="Second slide">
-                            <div class="mask rgba-black-strong"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Strong mask</h3>
-                            <p>Secondary text</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                                 alt="Third slide">
-                            <div class="mask rgba-black-slight"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Slight mask</h3>
-                            <p>Third text</p>
-                        </div>
-                    </div>
-                </div>
-                <!--/.Slides-->
-                <!--Controls-->
-                <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <!--/.Controls-->
-            </div>*@
+                    <!--/.Slides-->
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+                </div>*@
             <!--</div>-->
             <!--/.Carousel Wrapper-->
             <div class="banner-content col-lg-8">
-            <h6 class="text-white">Open Now, @DateTime.Now.ToString("MMMMM"),@DateTime.Now.Year</h6>
-            <h1 class="text-white">
-               Welcome to Patan Meseum
-            </h1>
-            <p class="pt-20 pb-20 text-white">
-                    NEPAL'S FIRST SELF SUSTAINABLE MESEUM. LOCATED AT HEART OF CITY
-            </p>
-            <a href="#" class="primary-btn text-uppercase">Learn More</a>
-        </div>
+                <h6 class="text-white">Open Now, @DateTime.Now.ToString("MMMMM"),@DateTime.Now.Year</h6>
+                <h1 class="text-white">
+                    Welcome to Patan Museum
+                </h1>
+                <p class="pt-20 pb-20 text-white">
+                    NEPAL'S FIRST SELF SUSTAINABLE MUSEUM. LOCATED AT HEART OF CITY
+                </p>
+                <a href="#" class="primary-btn text-uppercase">Learn More</a>
+            </div>
         </div>
     </div>
 </section>
@@ -154,14 +154,14 @@
         <div class="row">
             <div class="col-lg-6 quote-left">
                 <h1>
-                    <span>Music</span> gives soul to the universe, <br>
-                    wings to the <span>mind</span>, flight <br>
-                    to the <span>imagination</span>.
+                    <span>NEPAL'S FIRST  </span>  <br>
+                    <span>SELF SUSTAINABLE MUSEUM, </span>  <br>
+                    <span> AT HEART OF CITY</span> .
                 </h1>
             </div>
             <div class="col-lg-6 quote-right">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Patan Museum is housed in a courtyard within the Northernmost building complex of the Durbar area. The most picturesque setting of the palace that has been created in so small a place by piety and pride  is known now to the people as Keshav Narayan Chowk after a temple standing at the center of the courtyard dedicated to Keshavnarayan- a form of Lord Vishnu.This part is recorded in the history as Chaukot Durbar or four-cornered-fort-palace.
                 </p>
             </div>
         </div>
@@ -174,121 +174,28 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-10">
                 <div class="title text-center">
-                    <h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">Gallery</h1>
+                    <p>Check out our photo galleries.</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="active-exibition-carusel">
-                <div class="single-exibition item">
-                    <img src="img/e1.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e2.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e3.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e1.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e2.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e3.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img src="img/e1.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img class="img-fluid" src="img/e2.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
-                <div class="single-exibition item">
-                    <img class="img-fluid" src="img/e3.jpg" alt="">
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Life style</a></li>
-                    </ul>
-                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <h6 class="date">31st January, 2018</h6>
-                </div>
+
+                @foreach (var item in Model.Galleries.ToList())
+                {
+                    <div class="single-exibition item">
+                        <img src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+
+                        <a href='@Url.Action("detailsUser", "Galleries")?id=' @item.Id><h4>@item.Name</h4></a>
+                        <p>
+                            @item.ShortDetails
+                        </p>
+                        <h6 class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</h6>
+                    </div>
+                }
+
+
             </div>
         </div>
     </div>
@@ -301,51 +208,43 @@
             <div class="menu-content pb-60 col-lg-10">
                 <div class="title text-center">
                     <h1 class="mb-10">Checkout our Upcoming Events</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <p>Don't miss any events.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 event-left">
-                <div class="single-events">
-                    <img class="img-fluid" src="img/u1.jpg" alt="">
-                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                    <h6><span>21st February</span> at Central government museum</h6>
-                    <p>
-                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                    </p>
-                    <a href="#" class="primary-btn text-uppercase">View Details</a>
-                </div>
-                <div class="single-events">
-                    <img class="img-fluid" src="img/u3.jpg" alt="">
-                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                    <h6><span>21st February</span> at Central government museum</h6>
-                    <p>
-                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                    </p>
-                    <a href="#" class="primary-btn text-uppercase">View Details</a>
-                </div>
+            @{int count = Model.Events.ToList().Count() > 4 ? 4 : Model.Events.Count();
+                int countNews = Model.NewsEvents.ToList().Count > 4 ? 4 : Model.NewsEvents.Count(); }
+            <div class='col-lg-6 event-left'>
+                @foreach (var item in Model.Events.ToList().Take(count < 2 ? count : 2))
+                {
+                    <div class="single-events">
+                        <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                        <a href='@Url.Action("DetailUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                        <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
+                        <p>
+                            @Html.Raw(item.Description).ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)
+                        </p>
+                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                    </div>
+                }
             </div>
-            <div class="col-lg-6 event-right">
-                <div class="single-events">
-                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                    <h6><span>21st February</span> at Central government museum</h6>
-                    <p>
-                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                    </p>
-                    <a href="#" class="primary-btn text-uppercase">View Details</a>
-                    <img class="img-fluid" src="img/u2.jpg" alt="">
-                </div>
-                <div class="single-events">
-
-                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                    <h6><span>21st February</span> at Central government museum</h6>
-                    <p>
-                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                    </p>
-                    <a href="#" class="primary-btn text-uppercase">View Details</a>
-                    <img class="img-fluid" src="img/u4.jpg" alt="">
-                </div>
+            <div class='col-lg-6 event-right'>
+                @if (count > 2)
+                {
+                    foreach (var item in Model.Events.ToList().GetRange(count / 2, (count - count / 2)))
+                    {
+                        <div class="single-events">
+                            <a href='@Url.Action("DetailUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                            <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
+                            <p>
+                                @Html.Raw(item.Description).ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)
+                            </p>
+                            <a href="#" class="primary-btn text-uppercase">View Details</a>
+                            <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -357,119 +256,41 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Latest From Our Blog</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
+                    <h1 class="mb-10">News and Notice</h1>
+                    <p>Get latest news and notice on patan Museum</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 single-blog">
-                <div class="thumb">
-                    <img class="img-fluid" src="img/b1.jpg" alt="">
+            @foreach (var item in Model.NewsEvents.ToList().Take(countNews))
+            {
+                <div class="col-lg-3 col-md-6 single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="" style="height:174px;width:255px;">
+                    </div>
+                    <p class="date">@item.UploadDate.ToString("dd MMM yyyy")</p>
+                    <a href="#">
+                        <h4>
+                            @item.Title.ToString().Substring(0, item.Title.Length <= 50 ? item.Description.Length : 50)
+                        </h4>
+                    </a>
+                    <p>
+                        @item.Description.ToString().Substring(0, item.Description.Length <= 50 ? item.Description.Length : 50)
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase">View More</a>
                 </div>
-                <p class="date">10 Jan 2018</p>
-                <a href="#">
-                    <h4>
-                        Addiction When Gambling
-                        Becomes A Problem
-                    </h4>
-                </a>
-                <p>
-                    inappropriate behavior ipsum dolor sit amet, consectetur.
-                </p>
-                <div class="meta-bottom d-flex justify-content-between">
-                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 single-blog">
-                <div class="thumb">
-                    <img class="img-fluid" src="img/b2.jpg" alt="">
-                </div>
-                <p class="date">10 Jan 2018</p>
-                <a href="#">
-                    <h4>
-                        Addiction When Gambling
-                        Becomes A Problem
-                    </h4>
-                </a>
-                <p>
-                    inappropriate behavior ipsum dolor sit amet, consectetur.
-                </p>
-                <div class="meta-bottom d-flex justify-content-between">
-                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 single-blog">
-                <div class="thumb">
-                    <img class="img-fluid" src="img/b3.jpg" alt="">
-                </div>
-                <p class="date">10 Jan 2018</p>
-                <a href="#">
-                    <h4>
-                        Addiction When Gambling
-                        Becomes A Problem
-                    </h4>
-                </a>
-                <p>
-                    inappropriate behavior ipsum dolor sit amet, consectetur.
-                </p>
-                <div class="meta-bottom d-flex justify-content-between">
-                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 single-blog">
-                <div class="thumb">
-                    <img class="img-fluid" src="img/b4.jpg" alt="">
-                </div>
-                <p class="date">10 Jan 2018</p>
-                <a href="#">
-                    <h4>
-                        Addiction When Gambling
-                        Becomes A Problem
-                    </h4>
-                </a>
-                <p>
-                    inappropriate behavior ipsum dolor sit amet, consectetur.
-                </p>
-                <div class="meta-bottom d-flex justify-content-between">
-                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>
-<!-- End blog Area -->
-<!-- Start gallery Area -->
-<section class="gallery-area section-gap" id="gallery">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10 text-white">Our Exhibition Gallery</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
-                </div>
-            </div>
-        </div>
-        <div id="grid-container" class="row">
-            <a class="single-gallery" href="~/usertemp/img/g1.jpg"><img class="grid-item" src="img/g1.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g2.jpg"><img class="grid-item" src="img/g2.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g3.jpg"><img class="grid-item" src="img/g3.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g4.jpg"><img class="grid-item" src="img/g4.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g5.jpg"><img class="grid-item" src="img/g5.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g6.jpg"><img class="grid-item" src="img/g6.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g7.jpg"><img class="grid-item" src="img/g7.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g8.jpg"><img class="grid-item" src="img/g8.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g9.jpg"><img class="grid-item" src="img/g9.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g10.jpg"><img class="grid-item" src="img/g10.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g11.jpg"><img class="grid-item" src="img/g11.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g12.jpg"><img class="grid-item" src="img/g12.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g4.jpg"><img class="grid-item" src="img/g4.jpg"></a>
-            <a class="single-gallery" href="~/usertemp/img/g5.jpg"><img class="grid-item" src="img/g5.jpg"></a>
-        </div>
-    </div>
-</section>
-<!-- End gallery Area -->
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("img").error(function () {
+                $(this).unbind("error").attr("src", RootUrl + '/Admin/notfound.jpg');
+            });
+        })
+    </script>
+}

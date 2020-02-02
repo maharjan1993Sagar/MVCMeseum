@@ -14,8 +14,9 @@ namespace Meseum.Models
         [Required]
         public string Category { get; set; }
         public string Description { get; set; }
-        public DateTime UploadDate { get; set; }
+        public DateTime UploadDate { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string UpdatedBy { get; set; } = "Admin";
+        public IEnumerable<ImageFile> Files { get; set; }
     }
 }

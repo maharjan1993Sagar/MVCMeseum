@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,18 +49,22 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Banner banner,HttpPostedFileBase Image)
+        public ActionResult Create(Banner banner,HttpPostedFileBase Images)
         {
             if (ModelState.IsValid)
             {
-                if (Image != null)
+                if (!Directory.Exists(Server.MapPath("~/Admin/Images/Banner")))
                 {
-                    Image.SaveAs(Server.MapPath("~/Admin/Images/Banner/" + Image.FileName));
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Banner"));
+                }
+                if (Images != null)
+                {
+                    Images.SaveAs(Server.MapPath("~/Admin/Images/Banner/" + Images.FileName));
                     ImageFile file = new ImageFile
                     {
-                        Name = Image.FileName,
-                        Size = Image.ContentLength / 10000,
-                        path = "~/Admin/Images/Banner/" + Image.FileName,
+                        Name = Images.FileName,
+                        Size = Images.ContentLength / 10000,
+                        path = "~/Admin/Images/Banner/" + Images.FileName,
                         Type = "Image",
                         UploadedBy = "Admin",
                         UploadedDate = DateTime.Now
@@ -109,6 +114,10 @@ namespace Meseum.Controllers
             {
                 if (Image != null)
                 {
+                    if (!Directory.Exists(Server.MapPath("~/Admin/Images/Banner")))
+                    {
+                        Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Banner"));
+                    }
                     if (banner.Image != null)
                     {
                         db.ImageFile.Remove(banner.Image);

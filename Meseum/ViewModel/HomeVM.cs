@@ -10,5 +10,9 @@ namespace Meseum.ViewModel
     {
         public IEnumerable<Inventory> Inventories { get; set; }
         public IEnumerable<NewsEvent> NewsEvents { get; set; }
+        public IEnumerable<Gallery> Galleries{ get; set; }
+        public IEnumerable<Events> Events{ get; set; }
+        public IEnumerable<AboutUs> AboutUs { get; set; }
+
     }
 }

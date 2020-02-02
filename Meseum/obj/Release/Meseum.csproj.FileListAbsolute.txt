@@ -120,3 +120,5 @@ E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.Files.r
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.AddSomeTables.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.banner.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.someChagnes.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.detailsinaboutus.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.ImageToNews.resources

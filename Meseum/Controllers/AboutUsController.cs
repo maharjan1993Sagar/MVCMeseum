@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -35,7 +36,21 @@ namespace Meseum.Controllers
             }
             return View(aboutUs);
         }
-
+        public ActionResult DetailsUser(int? id)
+        {
+            AboutUs aboutUs = new AboutUs();
+            if (id == null)
+            {
+                aboutUs = db.AboutUs.Include(m=>m.File).FirstOrDefault();
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            aboutUs = db.AboutUs.Include(m => m.File).FirstOrDefault(m => m.Id == id);
+            if (aboutUs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aboutUs);
+        }
         // GET: AboutUs/Create
         public ActionResult Create()
         {
@@ -48,11 +63,15 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(AboutUs aboutUs,HttpPostedFileBase Image)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
-               
+                if (!Directory.Exists(Server.MapPath("~/Admin/Images/AboutUs")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/AboutUs"));
+                }
                 if (Image != null)
                 {
                     Image.SaveAs(Server.MapPath("~/Admin/Images/AboutUs/" + Image.FileName));
@@ -111,8 +130,13 @@ namespace Meseum.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 if (Image != null)
                 {
+                    if (!Directory.Exists(Server.MapPath("~/Admin/Images/AboutUs")))
+                    {
+                        Directory.CreateDirectory(Server.MapPath("~/Admin/Images/AboutUs"));
+                    }
                     if (aboutUs.File != null)
                     {
                         db.ImageFile.Remove(aboutUs.File);
