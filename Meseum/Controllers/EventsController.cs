@@ -46,7 +46,10 @@ namespace Meseum.Controllers
             {
                 events.Event = db.Events.Include(m => m.Files).FirstOrDefault();
             }
-             events.Event = db.Events.Include(m=>m.Files).FirstOrDefault(m=>m.Id==id);
+            else
+            {
+                events.Event = db.Events.Include(m => m.Files).FirstOrDefault(m => m.Id == id);
+            }
             if (events == null)
             {
                 return HttpNotFound();

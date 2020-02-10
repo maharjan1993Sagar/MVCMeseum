@@ -12,6 +12,8 @@ namespace Meseum.Context
         public MeseumContext()
             : base("DefaultConnection")
         {
+            //this.Configuration.LazyLoadingEnabled = false;
+            //this.Configuration.ProxyCreationEnabled = false;
         }
        // public DbSet<User> users { get; set; }
         public DbSet<Location> Locations { get; set; }
@@ -28,5 +30,13 @@ namespace Meseum.Context
         public DbSet<Files> Files { get; set; }
         public DbSet<ImageFile> ImageFile { get; set; }
         public DbSet<Banner> Banners { get; set; }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Gallery>()
+        //        .HasOptional<Files>(b => b.f)
+        //        .WithMany()
+        //        .WillCascadeOnDelete(false);
+        //}
     }
 }

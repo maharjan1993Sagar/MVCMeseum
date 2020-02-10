@@ -122,3 +122,4 @@ E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.banner.
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.someChagnes.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.detailsinaboutus.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.ImageToNews.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.filesToNews.resources

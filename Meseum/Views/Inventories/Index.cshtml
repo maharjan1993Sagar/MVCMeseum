@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 @section styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -30,85 +31,89 @@
         }*/
     </style>
 }
-<h2>Index</h2>
+<h2>Inventories</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <div style="overflow-x:scroll;">
     <table class="table table-bordered">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ObjectCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OriginOf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MadeBy)
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Material)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ObjectCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.size)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OriginOf)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MadeBy)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Material)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ObjectCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OriginOf)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MadeBy)
+                </th>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    <a id="btnUpload" data-id="@item.Id" data-toggle="modal" data-target="#myModal">Upload</a>|
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Material)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ObjectCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.size)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OriginOf)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MadeBy)
+                    </td>
 
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        <a id="btnUpload" data-id="@item.Id" data-toggle="modal" data-target="#myModal">Upload</a>|
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |    
+                        <a href='@Url.Action("GetFiles","Home")?id=@item.Id&type=Inventory'>Delete Files</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
 <!-- Modal -->
@@ -186,6 +191,12 @@
                     alert("No Files Selected. Please try again.");
                     e.preventDefault();
                 }
+            })
+
+
+            $("#btnUpload").click(function (e) {
+                $("#txtId").val($(this).attr("data-id"));
+
             })
             //$("#ImgFile").change(function () {
             //    $files = ($(this))[0].files

@@ -16,5 +16,6 @@ namespace Meseum.Models
         public string LongDetail { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string UpdatedBy { get; set; } = "Admin";
+        public ICollection<Category> Categories { get; set; }
     }
 }

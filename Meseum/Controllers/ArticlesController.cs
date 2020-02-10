@@ -36,7 +36,35 @@ namespace Meseum.Controllers
             }
             return View(article);
         }
+        public ActionResult DetailsUser()
+        {
+            return View(db.Articles.Include(m => m.File));
+        }
 
+        public FileResult Download(int? id)
+        {
+            if (id != null)
+            {
+                Article art = db.Articles.Include(a => a.File).FirstOrDefault(a => a.Id == id.Value);
+                if (art.File != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(art.File.path)))
+                    {
+                        byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath(art.File.path));
+                        string fileName = art.File.Name;
+                        return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+                    }
+                    return null;
+
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
         // GET: Articles/Create
         public ActionResult Create()
         {
@@ -77,12 +105,12 @@ namespace Meseum.Controllers
                     ImageFile image = db.ImageFile.OrderByDescending(m => m.Id).FirstOrDefault();
                     db.SaveChanges();
                     article.File = image;
-                    
+
                 }
                 db.Articles.Add(article);
                 db.SaveChanges();
                 article = db.Articles.OrderByDescending(m => m.Id).FirstOrDefault();
-               
+
                 return RedirectToAction("Index");
             }
 
@@ -110,7 +138,7 @@ namespace Meseum.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit(Article article,HttpPostedFileBase Image)
+        public ActionResult Edit(Article article, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
@@ -138,7 +166,7 @@ namespace Meseum.Controllers
                         UploadedDate = DateTime.Now
 
                     };
-               
+
                     db.ImageFile.Add(file);
                     db.SaveChanges();
                     ImageFile image = db.ImageFile.OrderByDescending(m => m.Id).FirstOrDefault();

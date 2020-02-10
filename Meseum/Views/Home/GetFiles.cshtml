@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Meseum.Models.ImageFile>
+@{
+    ViewBag.Title = "GetFiles";
+}
+<h2>Delete Files</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-2" data-id="@item.Id">
+<div class="thumb">
+    <img src="@Url.Content(item.path)" style="width:150px;height:150px;"/>
+</div>
+            @item.Name
+            <br />
+            <button id="btnDelete" class="btn btn-danger" data-id="@item.Id" data-type=@ViewBag.Type>Delete</button>
+
+        </div>
+    }
+</div>
+@section Scripts{   
+    <script>
+        $(function () {
+            $("button#btnDelete").click(function () {
+                var $div = $(this).parent();
+                var id = $(this).attr("data-id");
+                var type = $(this).attr("data-type");
+                var url = RootUrl + "Home/DeleteFile";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{'id':'" + id +"','type':'"+type+"'}", // serializes the form's elements.
+                    success: function (data) {
+                        if (data == 'TRUE') {
+                            alert("File Successfully Deleted.");
+                            $div.remove();
+                           
+                        }
+                        else {
+                            alert("Failed to delete file.");
+                        }
+
+                    }
+                });
+            })
+        
+        })
+
+    </script>
+    }

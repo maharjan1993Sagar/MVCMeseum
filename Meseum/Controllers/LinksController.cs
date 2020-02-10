@@ -35,7 +35,10 @@ namespace Meseum.Controllers
             }
             return View(link);
         }
-
+        public ActionResult DetailsUser()
+        {
+            return View(db.Links);
+        }
         // GET: Links/Create
         public ActionResult Create()
         {

@@ -17,6 +17,6 @@ namespace Meseum.Models
         public DateTime UploadDate { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string UpdatedBy { get; set; } = "Admin";
-        public IEnumerable<ImageFile> Files { get; set; }
+        public ICollection<ImageFile> Files { get; set; }
     }
 }

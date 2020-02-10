@@ -1,4 +1,8 @@
 ﻿@model Meseum.ViewModel.NewsDetails
+    @{
+        Layout = "~/Views/shared/_layoutArt.cshtml";
+
+    }
     <section class="banner-area relative" id="home">
         <div class="overlay overlay-bg"></div>
         <div class="container">
@@ -7,7 +11,7 @@
                     <h1 class="text-white">
                        News and Notice
                     </h1>
-                    <p class="text-white link-nav"><a href="@Url.Action("IndexUser","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailsUser","News")"> Events</a></p>
+                    <p class="text-white link-nav"><a href="@Url.Action("IndexUser","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailsUser","NewsEvents")"> News</a></p>
                 </div>
             </div>
         </div>
@@ -17,14 +21,18 @@
             <div class="row">
                 <div class="col-lg-8 post-list blog-post-list">
                     <div class="single-post">
-                        @if (Model.News.Files.ToList().Count > 0)
+                        @if (Model.News.Files != null)
                         {
+
                             foreach (var item in Model.News.Files)
                             {
                                 <img class="img-fluid" src="@Url.Content(item.path)" alt="">
                             }
                         }
-
+                        <ul class="tags">
+                            <li>@Model.News.UploadDate.ToString("dd MMM yyyy"),</li>
+                            <li>@Model.News.UpdatedBy</li>
+                        </ul>
                         <a href="#">
                             <h1>
                                 @Model.News.Title
@@ -47,10 +55,13 @@
                             {
                                 <div class="single-recent-post d-flex flex-row">
                                     <div class="recent-thumb">
-                                        <img class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                                        @if (item.Files != null)
+                                        {
+                                        <img style="height:77px;width:77px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                                        }
                                     </div>
                                     <div class="recent-details">
-                                        <a href="@Url.Action("DetailsUser","NewsEvents")?id=" @item.Id>
+                                        <a href="@Url.Action("DetailsUser","NewsEvents")?id=@item.Id">
                                             <h4>
                                                 @item.Title
                                             </h4>
@@ -60,6 +71,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                <br />
                             }
 
                         </div>

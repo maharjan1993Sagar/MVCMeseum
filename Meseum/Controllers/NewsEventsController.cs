@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using Meseum.Context;
@@ -16,7 +17,7 @@ namespace Meseum.Controllers
     public class NewsEventsController : Controller
     {
         private MeseumContext db = new MeseumContext();
-
+        string[] ImageExt = { ".PNG", ".JPG", ".JPEG", ".BMP", ".GIF", ".SVG" };
         // GET: NewsEvents
         public ActionResult Index()
         {
@@ -47,15 +48,14 @@ namespace Meseum.Controllers
             news.RecentNews = db.NewsEvents.Include(m=>m.Files);
             if (id == null)
             {
-               news.News = db.NewsEvents.Include(m=>m.Files).LastOrDefault();
+                news.News = db.NewsEvents.Include(m => m.Files).FirstOrDefault();
                 return View(news);
             }
-            NewsEvent newsEvent = db.NewsEvents.Include(m => m.Files).FirstOrDefault(m=>m.Id==id);
-            if (newsEvent == null)
+            else
             {
-                return HttpNotFound();
+                news.News = db.NewsEvents.Include(m => m.Files).FirstOrDefault(m => m.Id == id);
             }
-            return View(newsEvent);
+            return View(news);
         }
         // GET: NewsEvents/Create
         public ActionResult Create()
@@ -70,7 +70,8 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( NewsEvent newsEvent)
+        [ValidateInput(false)]
+        public ActionResult Create( NewsEvent newsEvent,List<HttpPostedFileBase> Images)
         {
             if (ModelState.IsValid)
             {
@@ -78,6 +79,71 @@ namespace Meseum.Controllers
                 newsEvent.UpdatedBy = User.Identity.Name;
                 db.NewsEvents.Add(newsEvent);
                 db.SaveChanges();
+
+                NewsEvent events = db.NewsEvents.Include(m=>m.Files).OrderByDescending(m => m.Id).FirstOrDefault();
+                int Id = db.NewsEvents.OrderByDescending(m => m.Id).FirstOrDefault().Id;
+                string id = Id.ToString();
+                if (id != null)
+                {
+                    if (!Directory.Exists(Server.MapPath("~/Admin/Images/News")))
+                    {
+                        Directory.CreateDirectory(Server.MapPath("~/Admin/Images/News"));
+                    }
+
+                    if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/News/" + id))))
+                    {
+                        Directory.CreateDirectory(Server.MapPath("~/Admin/Images/News/" + id));
+                    }
+
+                    if (Images.Count > 0)
+                    {
+                        foreach (HttpPostedFileBase fi in Images)
+                        {
+                            //Checking file is available to save.  
+                            if (fi != null)
+                            {
+                                var InputFileName = Path.GetFileName(fi.FileName);
+                                int size = fi.ContentLength / 1000000;
+
+                                string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+                                Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                                InputFileName = r.Replace(InputFileName, "");
+
+                                string extension = Path.GetExtension(fi.FileName);
+                                if (ImageExt.Contains(extension.ToUpper()))
+                                {
+                                    string path = Server.MapPath("~/Admin/Images/News/") + id + "/" + InputFileName;
+                                    var ServerSavePath = Path.Combine(path);
+                                    //Save file to server folder  
+                                    fi.SaveAs(ServerSavePath);
+                                    if (System.IO.File.Exists(path))
+                                    {
+                                        ImageFile file = new ImageFile
+                                        {
+                                            Name = InputFileName,
+                                            Size = size,
+                                            path = "~/Admin/Images/News/" + id + "/" + InputFileName,
+                                            Type = "Image",
+                                            UploadedBy = "Admin",
+                                            UploadedDate = DateTime.Now
+                                            
+                                        };
+                                        
+                                        db.ImageFile.Add(file);
+                                        db.SaveChanges();
+
+                                        ImageFile image = db.ImageFile.OrderByDescending(m => m.Id).FirstOrDefault();
+                                        events.Files.Add(image);
+                                        db.SaveChanges();
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+
                 return RedirectToAction("Index");
             }
 
@@ -104,7 +170,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(NewsEvent newsEvent)
+        public ActionResult Edit(NewsEvent newsEvent,List<HttpPostedFileBase> Images)
         {
             if (ModelState.IsValid)
             {
@@ -112,6 +178,57 @@ namespace Meseum.Controllers
                 newsEvent.UpdatedBy = User.Identity.Name;
                 db.Entry(newsEvent).State = EntityState.Modified;
                 db.SaveChanges();
+                if (!Directory.Exists(Path.Combine(Server.MapPath("~/Admin/Images/News/" + newsEvent.Id))))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/News/" + newsEvent.Id));
+                }
+
+                if (Images.Count > 0)
+                {
+                    foreach (HttpPostedFileBase fi in Images)
+                    {
+                        //Checking file is available to save.  
+                        if (fi != null)
+                        {
+                            var InputFileName = Path.GetFileName(fi.FileName);
+                            int size = fi.ContentLength / 1000000;
+
+                            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+                            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                            InputFileName = r.Replace(InputFileName, "");
+
+                            string extension = Path.GetExtension(fi.FileName);
+                            if (ImageExt.Contains(extension.ToUpper()))
+                            {
+                                string path = Server.MapPath("~/Admin/Images/News/") + newsEvent.Id + "/" + InputFileName;
+                                var ServerSavePath = Path.Combine(path);
+                                //Save file to server folder  
+                                fi.SaveAs(ServerSavePath);
+                                if (System.IO.File.Exists(path))
+                                {
+                                    ImageFile file = new ImageFile
+                                    {
+                                        Name = InputFileName,
+                                        Size = size,
+                                        path = "~/Admin/Images/News/" + newsEvent.Id + "/" + InputFileName,
+                                        Type = "Image",
+                                        UploadedBy = "Admin",
+                                        UploadedDate = DateTime.Now
+
+                                    };
+                                    db.ImageFile.Add(file);
+                                    db.SaveChanges();
+
+                                    ImageFile image = db.ImageFile.OrderByDescending(m => m.Id).FirstOrDefault();
+                                    newsEvent.Files.Add(image);
+                                    db.SaveChanges();
+
+                                }
+                            }
+
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             return View(newsEvent);

@@ -1,106 +1,71 @@
 ﻿@model IEnumerable<Meseum.Models.Inventory>
 
 @{
-
-
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    Layout = "~/Views/Shared/_LayoutArt.cshtml";
 }
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Inventories
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Inventories
+                </h1>
+                <p class="text-white link-nav"><a href="@Url.Action("indexUser", "Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("IndexUser", "Inventories")"> Inventories</a></p>
             </div>
-            <div class="panel-body">
+        </div>
+    </div>
+</section>
 
-                <div style="overflow-x:scroll;">
-                    <table class="table table-bordered" id="tblData">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Category.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Location.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Date)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Material)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.ObjectCode)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.size)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.OriginOf)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.MadeBy)
-                                </th>
-
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Category.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Location.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Date)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Material)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ObjectCode)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.size)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.OriginOf)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.MadeBy)
-                                    </td>
-
-                                    <td>
-
-                                        @Html.ActionLink("Details", "DetailsUser", new { id = item.Id }, new { @class = "btn btn-default" })
-
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+<!-- Start blog Area -->
+<section class="blog-area section-gap" id="blog">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Inventories</h1>
+                    <p>Watch our inventory store on patan Museum</p>
                 </div>
             </div>
         </div>
+        <div class="row">
+            @if (Model!=null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-6  single-blog">
+                        <div class="thumb">
+                            @if (item.Files.Any())
+                            {
+
+                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault(m => m.Type == "Image").path)" alt="" style="height:174px;width:255px;">
+                                } 
+                            else
+                            {
+                                <img  class="img-fluid" src="~/Admin/notfound.jpg" alt="" style="height:174px;width:255px;">
+
+                            }
+                          
+
+
+                        </div>
+                      @*  <p class="date">@item.UpdatedAt.ToString("dd MMM yyyy")</p>*@
+                        <a href="@Url.Action("DetailsUser","Inventories")?id=@item.Id">
+                            <h4>
+                                @item.Name.ToString().Substring(0, item.Name.Length <= 50 ? item.Name.Length : 50)
+                            </h4>
+                        </a>
+                        <p>
+                            Category:&nbsp;&nbsp;   @item.Category.Name<br />
+                            Location:&nbsp;&nbsp;   @item.Location.Name
+                        </p>
+                      
+                        
+
+                    </div>
+                }
+            }
         </div>
     </div>
-        @section scripts{
-            <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-            <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-            <script>
-                $(function () {
-                    $("body #tblData").DataTable();
-                })
-            </script>
-        }
+</section>

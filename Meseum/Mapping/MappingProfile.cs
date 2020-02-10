@@ -16,6 +16,8 @@ namespace Meseum.Mapping
             {
                 CreateMap<Inventory, InventoryVM>();
                 CreateMap<InventoryVM, Inventory>();
+                CreateMap<IEnumerable<Files>,IEnumerable<ImageFile>>();
+                CreateMap<ImageFile,Files>();
 
             });
             IMapper iMapper = config.CreateMapper();

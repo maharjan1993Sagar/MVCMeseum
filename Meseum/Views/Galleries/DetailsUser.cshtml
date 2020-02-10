@@ -1,48 +1,51 @@
 ﻿@model IEnumerable<Meseum.Models.Gallery>
-    <!-- start banner Area -->
-    <section class="banner-area relative" id="home">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="about-content col-lg-12">
-                    <h1 class="text-white">
-                       Gallery
-                    </h1>
-                    <p class="text-white link-nav"><a href="@Url.Action("IndexUser","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailUser","Galleries")"> Gallery</a></p>
+@{
+    Layout = "~/Views/Shared/_LayoutArt.cshtml";
+}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Gallery
+                </h1>
+                <p class="text-white link-nav"><a href="@Url.Action("IndexUser","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailUser","Galleries")"> Gallery</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start upcoming-exibition Area -->
+<section class="upcoming-exibition-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Our Gallery</h1>
+                    <p>Check our photo gallery</p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End banner Area -->
-    <!-- Start upcoming-exibition Area -->
-    <section class="upcoming-exibition-area section-gap">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-70 col-lg-8">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Our Gallery</h1>
-                        <p>Check our photo gallery</p>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 single-exhibition">
+                    <div class="thumb">
+                        <img class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                    </div>
+                    <p class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</p>
+                    <a href="@Url.Action("gallery","Galleries")?id= @item.Id"><h4>@item.Name</h4></a>
+                    <p>
+                        @item.ShortDetails
+                    </p>
+                    <div class="meta-bottom d-flex justify-content-start">
+                        <p class="price"><a href="@Url.Action("gallery","Galleries")?id= @item.Id"></a></p>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-4 col-md-6 single-exhibition">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/pages/ex1.jpg" alt="">
-                        </div>
-                        <p class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</p>
-                        <a href="@Url.Action("gallery","Galleries")?id="@item.Id><h4>@item.Name</h4></a>
-                        <p>
-                            @item.ShortDetails
-                        </p>
-                        <div class="meta-bottom d-flex justify-content-start">
-                            <p class="price"><a href="@Url.Action("gallery","Galleries")?id="@item.Id</p>
-                        </div>
-                    </div>
-                }
-            </div>
+            }
         </div>
-    </section>
-    <!-- End upcoming-exibition Area -->
+    </div>
+</section>
+<!-- End upcoming-exibition Area -->

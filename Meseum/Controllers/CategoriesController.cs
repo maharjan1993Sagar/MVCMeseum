@@ -18,7 +18,7 @@ namespace Meseum.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.Include(mbox=>mbox.Location).ToList());
         }
 
         // GET: Categories/Details/5
@@ -40,6 +40,7 @@ namespace Meseum.Controllers
         public ActionResult Create()
         {
             Category category = new Category();
+            ViewBag.LocationId = new SelectList(db.Locations, "Id", "Name");
             return View(category);
         }
 
@@ -58,6 +59,7 @@ namespace Meseum.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.LocationId = new SelectList(db.Locations, "Id", "Name");
 
             return View(category);
         }
@@ -70,6 +72,7 @@ namespace Meseum.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Category category = db.Categories.Find(id);
+            ViewBag.LocationId = new SelectList(db.Locations, "Id", "Name", category.LocationId != null ? category.LocationId :0);
             if (category == null)
             {
                 return HttpNotFound();
@@ -92,6 +95,7 @@ namespace Meseum.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.LocationId = new SelectList(db.Locations, "Id", "Name", category.LocationId != null ? category.Id : 0);
             return View(category);
         }
 

@@ -5,58 +5,70 @@
 
     ViewBag.Title = "Create";
 }
-<h4>Category</h4>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form">
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Category</h3>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name)
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(model => model.ShortDetail)
+    <div class="card-body">
 
-                @Html.EditorFor(model => model.ShortDetail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ShortDetail, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(model => model.LongDetail)
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-                @Html.EditorFor(model => model.LongDetail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LongDetail, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(m => m.Id)
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Location</label>
+                    @Html.DropDownListFor(model => model.LocationId,null,"--SelectList--",  new { @class = "form-control" } )
+                    @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(model => model.ShortName)
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortName)
 
-                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-      
             <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortDetail)
+
+                    @Html.EditorFor(model => model.ShortDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ShortDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LongDetail)
+
+                    @Html.EditorFor(model => model.LongDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LongDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="col-md-12" style="text-align:center; padding-top:15px;">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </div>
-   
-}
-<div>
-@Html.ActionLink("Back to List", "Index")
+
+        }
     </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

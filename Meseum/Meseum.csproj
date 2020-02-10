@@ -64,12 +64,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -182,6 +191,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Ckeditor\ImageBrowser.aspx.cs">
       <DependentUpon>ImageBrowser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +216,7 @@
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\LinksController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\MeseumApiController.cs" />
     <Compile Include="Controllers\NewsEventsController.cs" />
     <Compile Include="Controllers\PosturesController.cs" />
     <Compile Include="Controllers\QueriesController.cs" />
@@ -254,6 +265,18 @@
     <Compile Include="Migrations\202002020249189_ImageToNews.cs" />
     <Compile Include="Migrations\202002020249189_ImageToNews.Designer.cs">
       <DependentUpon>202002020249189_ImageToNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002040406216_filesToNews.cs" />
+    <Compile Include="Migrations\202002040406216_filesToNews.Designer.cs">
+      <DependentUpon>202002040406216_filesToNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002061123082_loc.cs" />
+    <Compile Include="Migrations\202002061123082_loc.Designer.cs">
+      <DependentUpon>202002061123082_loc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002061136045_locCat.cs" />
+    <Compile Include="Migrations\202002061136045_locCat.Designer.cs">
+      <DependentUpon>202002061136045_locCat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -2846,7 +2869,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\IndexUser.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -2870,7 +2893,6 @@
     <Content Include="Views\Locations\Create.cshtml" />
     <Content Include="Views\Locations\Delete.cshtml" />
     <Content Include="Views\Locations\Details.cshtml" />
-    <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
@@ -2916,7 +2938,7 @@
     <Content Include="Views\Inventories\IndexUser.cshtml" />
     <Content Include="Views\Inventories\Uploads.cshtml" />
     <Content Include="Views\Shared\_LayoutArt.cshtml" />
-    <Content Include="Views\Home\IndexUser.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Articles\Create.cshtml" />
     <Content Include="Views\Articles\Delete.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
@@ -2952,11 +2974,14 @@
     <Content Include="Views\Banners\Details.cshtml" />
     <Content Include="Views\Banners\Edit.cshtml" />
     <Content Include="Views\Banners\Index.cshtml" />
-    <Content Include="Views\Links\Details - Copy.cshtml" />
+    <Content Include="Views\Links\DetailsUser.cshtml" />
     <Content Include="Views\Events\DetailsUser.cshtml" />
     <Content Include="Views\Galleries\Gallery.cshtml" />
     <Content Include="Views\Galleries\DetailsUser.cshtml" />
     <Content Include="Views\AboutUs\DetailsUser.cshtml" />
+    <Content Include="Views\Articles\DetailsUser.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Home\GetFiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3007,6 +3032,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002020249189_ImageToNews.resx">
       <DependentUpon>202002020249189_ImageToNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002040406216_filesToNews.resx">
+      <DependentUpon>202002040406216_filesToNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002061123082_loc.resx">
+      <DependentUpon>202002061123082_loc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002061136045_locCat.resx">
+      <DependentUpon>202002061136045_locCat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

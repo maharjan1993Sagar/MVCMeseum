@@ -1,4 +1,7 @@
 ﻿@model Meseum.ViewModel.EventDetails
+@{
+    Layout = "~/Views/Shared/_LayoutArt.cshtml";
+}
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -17,29 +20,32 @@
         <div class="row">
             <div class="col-lg-8 post-list blog-post-list">
                 <div class="single-post">
-                    @if (Model.Event.Files.ToList().Count > 0)
+                    @if (Model.Event.Files !=null)
                     {
                         foreach (var item in Model.Event.Files)
                         {
-                            <img class="img-fluid" src="@Url.Content(item.path)" alt="">
+                            <img  class="img-fluid" src="@Url.Content(item.path)" alt="">
                         }
                     }
-                  
+                    <ul class="tags">
+                        <li>@Model.Event.PostedDate.ToString("dd MMM yyyy"),</li>
+                        <li>@Model.Event.UploadedBy</li>
+                    </ul>
                     <a href="#">
                         <h1>
                             @Model.Event.Title
                         </h1>
                     </a>
                     <div class="content-wrap">
-                       
-                       @Html.Raw(Model.Event.Description)
+
+                        @Html.Raw(Model.Event.Description)
 
                     </div>
-                   
+
                 </div>
             </div>
             <div class="col-lg-4 sidebar">
-        
+
                 <div class="single-widget recent-posts-widget">
                     <h4 class="title">Recent Posts</h4>
                     <div class="blog-list ">
@@ -47,24 +53,25 @@
                         {
                             <div class="single-recent-post d-flex flex-row">
                                 <div class="recent-thumb">
-                                    <img class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                                    <img  style="height:76.92px;width:76.92px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
                                 </div>
                                 <div class="recent-details">
-                                    <a href="@Url.Action("DetailsUser","Events")?id="@item.Id>
+                                    <a href="@Url.Action("DetailsUser","Events")?id=@item.Id" >
                                         <h4>
-                                           @item.Title
+                                            @item.Title
                                         </h4>
                                     </a>
                                     <p>
-                                       @item.EventDate.ToString("dd MMM yyyy")
+                                        @item.EventDate.ToString("dd MMM yyyy")
                                     </p>
                                 </div>
                             </div>
+                            <br />
                         }
 
                     </div>
                 </div>
-                
+
+            </div>
         </div>
-    </div>
 </section>

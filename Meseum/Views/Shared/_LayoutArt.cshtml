@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="~/usertemp/css/animate.min.css">
     <link rel="stylesheet" href="~/usertemp/css/owl.carousel.css">
     <link rel="stylesheet" href="~/usertemp/css/main.css">
+    @RenderSection("styles",false)
 </head>
 <body>
     <header id="header" id="home">
@@ -42,7 +43,7 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
                         <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                     </ul>
                 </div>
@@ -52,7 +53,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
-                    <a href="index.html">
+                    <a href="@Url.Action("IndexUser","Home")">
                         <img src="~/User/logo.png" />
                     </a>
                 </div>
@@ -64,12 +65,14 @@
                             <ul id="About"></ul>
                         </li>
                         <li><a href="@Url.Action("DetailsUser","Galleries")">Gallery</a></li>
+                        <li><a href="@Url.Action("DetailsUser","Articles")">Articles</a></li>
                         <li><a href="@Url.Action("DetailsUser","Events")">Events</a></li>
                         <li><a href="@Url.Action("DetailsUser","NewsEvents")">News and Notice</a></li>
-                        <li><a href="#">Meseum Building</a></li>
-                        <li><a href="#">Quries/Comments</a></li>
-                        <li><a href="#">Related Links</a></li>
-                        <li><a href="#">Contact</a></li>
+                        @*<li><a href="#">Meseum Building</a></li>
+                            <li><a href="#">Quries/Comments</a></li>*@
+                        <li><a href="@Url.Action("DetailsUser","Links")">Related Links</a></li>
+                        <li><a href="@Url.Action("IndexUser","Inventories")">Inventories</a></li>
+                        <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
 
                     </ul>
                 </nav><!-- #nav-menu-container -->
@@ -85,30 +88,37 @@
                     <div class="single-footer-widget">
                         <h6>About Us</h6>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                            The Patan Museum is a museum located in Patan, Lalitpur, Nepal. The museum falls under the UNESCO’s World Heritage Sites.
                         </p>
                         <p class="footer-text">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://dibugsoft.com" target="_blank">DibugSoft Pvt. Ltd.</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-5  col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h6>Newsletter</h6>
-                        <p>Stay update with our latest</p>
-                        <div class="" id="mc_embed_signup">
-                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-                                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-                                <div style="position: absolute; left: -5000px;">
-                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                </div>
-                                <div class="info"></div>
-                            </form>
+                        <h6>Find Us On Facebook</h6>
+                        <div class="fb-page" data-href="https://www.facebook.com/PatanMuseum/"
+                             data-tabs="timeline" data-small-header="false"
+                             data-adapt-container-width="true"
+                             data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/PatanMuseum/" class="fb-xfbml-parse-ignore">
+                                <a target="_blank" href="https://www.facebook.com/PatanMuseum/">Testing.</a>
+                            </blockquote>
                         </div>
+                        @*<div class="" id="mc_embed_signup">
+                                <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                    <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                    </div>
+                                    <div class="info"></div>
+                                </form>
+                            </div>*@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
@@ -118,8 +128,8 @@
                         <div class="footer-social d-flex align-items-center">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
                         </div>
                     </div>
                 </div>
@@ -146,9 +156,8 @@
     <script src="~/usertemp/js/main.js"></script>
     <script>
         var urls = [];
+          var RootUrl = '@Url.Content("~/")';
         $(function () {
-            var RootUrl = '@Url.Content("~/")';
-            
 
                      $.ajax({
                         async: false,
@@ -177,8 +186,8 @@
                     var AboutUs = "";
                     if (response.length > 0) {
                         for (var i = 0; i < response.length; i++) {
-                            AboutUs =AboutUs +'<li><a href="@Url.Action("DetailsUser","AboutUs")?title=' + response[i] + '">'+response[i].toUpperCase()+'</a></li>'
-                            
+                            AboutUs =AboutUs +'<li><a href="@Url.Action("DetailsUser","AboutUs")?id=' + response[i].Id + '">'+response[i].Name.toUpperCase()+'</a></li>'
+
                         }
                         $("li ul#About").append(AboutUs);
                     }
@@ -198,6 +207,7 @@
 
         })
     </script>
+    @RenderSection("scripts", false)
 </body>
 </html>
 

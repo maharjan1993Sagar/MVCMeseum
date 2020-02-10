@@ -40,8 +40,8 @@ namespace Meseum.Controllers
 
         public ActionResult IndexUser()
         {
-            var inventories = db.Inventories.Include(i => i.Category).Include(i => i.Location);
-            return View(inventories.ToList());
+            List<Inventory> inventories = db.Inventories.Include(m=>m.Files).Include(i => i.Category).Include(i => i.Location).ToList();
+            return View(inventories);
         }
 
         // GET: Inventories/Details/5
@@ -64,19 +64,20 @@ namespace Meseum.Controllers
 
         public ActionResult DetailsUser(int? id)
         {
+            Inventory inventory = new Inventory();
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                inventory = db.Inventories.FirstOrDefault();
             }
-            Inventory inventory = db.Inventories.Include(m => m.Files).First(m => m.Id == id);
-            IEnumerable<Files> files = inventory.Files;
+            inventory = db.Inventories.Include(m => m.Files).First(m => m.Id == id);
+            //IEnumerable<Files> files = inventory.Files;
 
-            InventoryDetails invDetails = new InventoryDetails { Inventory = inventory, Files = files.ToList() };
+            //InventoryDetails invDetails = new InventoryDetails { Inventory = inventory, Files = files.ToList() };
             if (inventory == null)
             {
                 return HttpNotFound();
             }
-            return View(invDetails);
+            return View(inventory);
         }
         //public ActionResult Upload()
         //{

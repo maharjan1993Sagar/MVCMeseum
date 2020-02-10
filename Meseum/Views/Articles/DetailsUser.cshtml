@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Meseum.Models.Article>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layoutArt.cshtml";
+}
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Articles
+                </h1>
+                <p class="text-white link-nav"><a href="@Url.Action("indexUser", "Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailsUser", "Articles")"> Articles</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="whole-wrap">
+    <div class="container">
+        <div class="section-top-border">
+            <h3 class="mb-30">Articles</h3>
+            <div class="progress-table-wrap">
+                <div class="progress-table">
+                    <div class="table-head">
+                        <div class="serial">#</div>
+                        <div class="visit">Article</div>
+                        <div class="visit">Category</div>
+                        <div class="visit">Size</div>
+                        <div class="visit">Download</div>
+                    </div>
+
+                    @{int i = 1;}
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="table-row">
+                            <div class="serial">@i</div>
+                            <div class="visit">@item.File.Name</div>
+                            <div class="visit">@item.Category</div>
+                            <div class="visit">@item.File.Size MB</div>
+                            <div class="visit"><a href="@Url.Action("Download","Articles")?id=@item.Id"><i class="fa fa-download"></i></a></div>
+ </div>
+                        { i = i + 1; }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
