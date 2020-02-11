@@ -172,6 +172,7 @@ namespace Meseum.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Banner banner = db.Banners.Find(id);
             if (banner.Image != null)
             {

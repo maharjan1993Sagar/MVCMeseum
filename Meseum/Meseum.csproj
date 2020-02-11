@@ -220,8 +220,24 @@
     <Compile Include="Controllers\NewsEventsController.cs" />
     <Compile Include="Controllers\PosturesController.cs" />
     <Compile Include="Controllers\QueriesController.cs" />
+    <Compile Include="Extension\RoleExtension.cs" />
     <Compile Include="Helpers\CkeditorHtmlHelpers.cs" />
     <Compile Include="Mapping\MappingProfile.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Migrations\201912290406276_InitialCreate.cs" />
+    <Compile Include="Helpers\Migrations\201912290406276_InitialCreate.Designer.cs">
+      <DependentUpon>201912290406276_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.cs" />
+    <Compile Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.Designer.cs">
+      <DependentUpon>202002110417242_somecustompropertiestoidentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Migrations\Configuration.cs" />
     <Compile Include="Migrations\201912271230577_SomeClassAdded.cs" />
     <Compile Include="Migrations\201912271230577_SomeClassAdded.Designer.cs">
       <DependentUpon>201912271230577_SomeClassAdded.cs</DependentUpon>
@@ -279,12 +295,6 @@
       <DependentUpon>202002061136045_locCat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Category.cs" />
@@ -304,6 +314,7 @@
     <Compile Include="Models\Posture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\InventoryDto.cs" />
     <Compile Include="ViewModel\NewsDetails.cs" />
     <Compile Include="ViewModel\EventDetails.cs" />
     <Compile Include="ViewModel\BannerImage.cs" />
@@ -322,41 +333,7 @@
     <Content Include="Admin\css\sb-admin-2.min.css" />
     <Content Include="Admin\forgot-password.html" />
     <Content Include="Admin\gulpfile.js" />
-    <Content Include="Admin\Images\AboutUs\download %281%29.jpg" />
-    <Content Include="Admin\Images\AboutUs\download.jpg" />
-    <Content Include="Admin\Images\Article\download %281%29.jpg" />
-    <Content Include="Admin\Images\Article\Mile Ho Tum - Reprise Version Neha Kakkar Tony Kakkar Fever.mp3" />
-    <Content Include="Admin\Images\Banner\download %283%29.jpg" />
-    <Content Include="Admin\Images\Banner\download.jpg" />
-    <Content Include="Admin\Images\Banner\header-bg1.jpg" />
-    <Content Include="Admin\Images\Banner\patan.jpg" />
-    <Content Include="Admin\Images\Banner\patan1.jpg" />
-    <Content Include="Admin\Images\Banner\patan2.jpg" />
-    <Content Include="Admin\Images\Banner\patan3.jpg" />
-    <Content Include="Admin\Images\Banner\patan8.jpg" />
-    <Content Include="Admin\Images\Events\1\download %281%29.jpg" />
-    <Content Include="Admin\Images\Events\1\download %283%29.jpg" />
-    <Content Include="Admin\Images\Events\1\download %284%29.jpg" />
-    <Content Include="Admin\Images\Events\1\download.jpg" />
-    <Content Include="Admin\Images\Events\2\download %284%29.jpg" />
-    <Content Include="Admin\Images\Events\2\download.jpg" />
-    <Content Include="Admin\Images\Events\3\download.jpg" />
-    <Content Include="Admin\Images\Events\4\download %281%29.jpg" />
-    <Content Include="Admin\Images\Events\4\download %283%29.jpg" />
-    <Content Include="Admin\Images\Gallery\1\download %281%29.jpg" />
-    <Content Include="Admin\Images\Gallery\1\download %283%29.jpg" />
-    <Content Include="Admin\Images\Gallery\1\download %284%29.jpg" />
-    <Content Include="Admin\Images\Gallery\2\download %281%29.jpg" />
-    <Content Include="Admin\Images\Gallery\2\download %283%29.jpg" />
-    <Content Include="Admin\Images\Gallery\2\download %284%29.jpg" />
-    <Content Include="Admin\Images\Gallery\2\download.jpg" />
-    <Content Include="Admin\Images\Gallery\3\download %281%29.jpg" />
-    <Content Include="Admin\Images\Gallery\3\download %283%29.jpg" />
-    <Content Include="Admin\Images\Gallery\3\download %284%29.jpg" />
-    <Content Include="Admin\Images\Gallery\3\download.jpg" />
-    <Content Include="Admin\Images\Inventories\Thumb\20.jpg" />
-    <Content Include="Admin\Images\Inventories\Thumb\21.jpg" />
-    <Content Include="Admin\Images\Inventories\Thumb\22.jpg" />
+    <Content Include="Admin\images.jpg" />
     <Content Include="Admin\img\meseum.ico" />
     <Content Include="Admin\img\meseum.png" />
     <Content Include="Admin\img\undraw_posting_photo.svg" />
@@ -1966,6 +1943,7 @@
     <Content Include="Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Admin\VideoIcon.png" />
     <Content Include="Ckeditor\config.js" />
     <Content Include="Ckeditor\ImageBrowser.aspx" />
     <Content Include="Ckeditor\LinkBrowser.aspx" />
@@ -2151,8 +2129,6 @@
     <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Admin\vendor\jquery\jquery.min.map" />
     <Content Include="Admin\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Admin\Images\Article\25877494.pdf" />
-    <Content Include="Admin\Images\Article\CV_SAGARMAHARJAN.docx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
@@ -2514,11 +2490,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="UserTemp\about.html" />
-    <Content Include="UserTemp\blog-home.html" />
-    <Content Include="UserTemp\blog-single.html" />
-    <Content Include="UserTemp\category.html" />
-    <Content Include="UserTemp\contact.html" />
     <Content Include="UserTemp\css\animate.min.css" />
     <Content Include="UserTemp\css\bootstrap.css" />
     <Content Include="UserTemp\css\bootstrap\bootstrap-grid.css" />
@@ -2533,11 +2504,8 @@
     <Content Include="UserTemp\css\nice-select.css" />
     <Content Include="UserTemp\css\owl.carousel.css" />
     <Content Include="UserTemp\css\theme\pages.css" />
-    <Content Include="UserTemp\elements.html" />
-    <Content Include="UserTemp\event.html" />
     <Content Include="UserTemp\fonts\fontawesome-webfont.svg" />
     <Content Include="UserTemp\fonts\Linearicons-Free.svg" />
-    <Content Include="UserTemp\gallery.html" />
     <Content Include="UserTemp\img\b1.jpg" />
     <Content Include="UserTemp\img\b2.jpg" />
     <Content Include="UserTemp\img\b3.jpg" />
@@ -2641,8 +2609,6 @@
     <Content Include="UserTemp\img\u2.jpg" />
     <Content Include="UserTemp\img\u3.jpg" />
     <Content Include="UserTemp\img\u4.jpg" />
-    <Content Include="UserTemp\index.html" />
-    <Content Include="UserTemp\index2.html" />
     <Content Include="UserTemp\js\easing.min.js" />
     <Content Include="UserTemp\js\hoverIntent.js" />
     <Content Include="UserTemp\js\imagesloaded.pkgd.min.js" />
@@ -2660,7 +2626,6 @@
     <Content Include="UserTemp\js\superfish.min.js" />
     <Content Include="UserTemp\js\vendor\bootstrap.min.js" />
     <Content Include="UserTemp\js\vendor\jquery-2.2.4.min.js" />
-    <Content Include="UserTemp\ticket.html" />
     <Content Include="User\css\asstes\css\style1.css" />
     <Content Include="User\css\asstes\css\styles.css" />
     <Content Include="User\css\bootstrap.css" />
@@ -2982,6 +2947,7 @@
     <Content Include="Views\Articles\DetailsUser.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Home\GetFiles.cshtml" />
+    <Content Include="Views\Home\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3000,6 +2966,12 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Helpers\Migrations\201912290406276_InitialCreate.resx">
+      <DependentUpon>201912290406276_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.resx">
+      <DependentUpon>202002110417242_somecustompropertiestoidentity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912271230577_SomeClassAdded.resx">
       <DependentUpon>201912271230577_SomeClassAdded.cs</DependentUpon>
     </EmbeddedResource>

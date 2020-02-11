@@ -34,6 +34,10 @@ namespace Meseum.Controllers
             home.AboutUs = db.AboutUs.Include(m => m.File);
             return View(home);
         }
+        public ActionResult IndexAdmin()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -66,7 +70,7 @@ namespace Meseum.Controllers
 
         public ActionResult GetFiles(int? id, string type)
         {
-            IEnumerable<ImageFile> files = null;
+            IEnumerable<ImageFile> files=null;
             if (id != null)
             {
                 ViewBag.Type =type;
@@ -86,7 +90,18 @@ namespace Meseum.Controllers
                 {
                    
                     IEnumerable<Files> filess = db.Inventories.Include(m => m.Files).FirstOrDefault(m => m.Id == id.Value).Files;
-                    files = mapper.Map<IEnumerable<Files>, IEnumerable<ImageFile>>(filess);
+                    files = (from f in filess
+                             select new ImageFile
+                             {
+                                 Id = f.Id,
+                                 path = f.path,
+                                 Name = f.Name,
+                                 UploadedDate = f.UploadedDate,
+                                 UploadedBy = f.UploadedBy,
+                                 Type = f.Type,
+                                 Size = f.Size
+                             }).AsEnumerable();
+                           // mapper.Map<IEnumerable<Files>, IEnumerable<ImageFile>>(filess);
                 }
             }
             return View(files);

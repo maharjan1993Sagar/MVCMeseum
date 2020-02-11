@@ -246,12 +246,17 @@ namespace Meseum.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Events events = db.Events.Find(id);
-
-            foreach (var item in events.Files)
+            IEnumerable<ImageFile> files = db.Events.Include(mbox => mbox.Files).FirstOrDefault(m => m.Id == id).Files;
+            foreach (var item in files)
             {
-                System.IO.File.Delete(Server.MapPath(item.path));
+                if (System.IO.File.Exists(Server.MapPath(item.path)))
+                {
+                    System.IO.File.Delete(Server.MapPath(item.path));
+                }
+                db.ImageFile.Remove(item);
+                db.SaveChanges();
             }
+            Events events = db.Events.Find(id);
             
             db.Events.Remove(events);
             db.SaveChanges();

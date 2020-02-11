@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Meseum.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Galleries</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                    <a href='@Url.Action("GetFiles","Home")?id=@item.Id&type=Gallery'>Delete Files</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

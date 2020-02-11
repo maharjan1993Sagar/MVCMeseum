@@ -1,0 +1,153 @@
+﻿@model Meseum.ViewModel.InventoryDetails
+
+@{
+    ViewBag.Title = "Inventory Details";
+}
+<div class="card shadow col-md-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Inventory Details</h6>
+    </div>
+    <div class="card-body">
+        <img src="~/Admin/Images/Inventories/Thumb/@(Model.Inventory.Id+".jpg")"  />
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.Location.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.Location.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.Material)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.Material)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventory.ObjectCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inventory.ObjectCode)
+            </dd>
+        </dl>
+
+
+    </div>
+</div>
+<br />
+<div class="card mb-4 py-3 border-bottom-primary">
+    <div class="card-body">
+        <h2>Images Files</h2>
+        @foreach (var item in Model.Files.Where(m => m.Type == "Image"))
+        {
+            <div class="col-md-4">
+
+                <img height="200" width="200" src="@Url.Content(item.path)" alt="img" />
+                <br />
+                <label>@item.Name</label>
+            </div>
+        }
+    </div>
+</div>
+<div class="card mb-4 py-3 border-bottom-primary">
+    <div class="card-body">
+        <h2>Audio</h2>
+        <table id="tblAudio" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>File Size(MB)</th>
+                    <th>Play Audio</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Files.Where(m => m.Type == "Audio"))
+                {
+                    <tr>
+
+                        <td>@item.Name</td>
+                        <td>@item.Size</td>
+                        <td>
+                            <audio controls>
+                                <source src="@Url.Content(item.path)" type="audio/ogg">
+                            </audio>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="card mb-4 py-3 border-bottom-primary">
+    <div class="card-body">
+        <h2>Video</h2>
+       
+            @foreach (var item in Model.Files.Where(m => m.Type == "Video"))
+            {
+                <div class="col-md-4">
+
+                    <video style="width:100%; height:auto;" controls>
+                        <source src="@Url.Content(item.path)" type="video/mp4" />
+                    </video>
+                    <br />
+                    <label>@item.Name</label><br />
+                    @item.UploadedBy<br />
+                    @item.UploadedDate
+                </div>
+
+
+            }
+      
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("body table tbody tr td a#btnUpload").click(function () {
+                $("#txtId").val($(this).attr("data-id"));
+                $('#myModal').modal('show');
+            })
+            $('#tblAudio').DataTable();
+
+            $("audio").on("play", function () {
+                $("audio").not(this).each(function (index, audio) {
+                    audio.pause();
+                });
+            });
+        })
+    </script>
+
+}

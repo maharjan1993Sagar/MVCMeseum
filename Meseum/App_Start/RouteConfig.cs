@@ -28,6 +28,12 @@ namespace Meseum
            );
 
             routes.MapRoute(
+             name: "Dashboard",
+             url: "home/dashboard",
+             defaults: new { controller = "Home", action = "IndexAdmin", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

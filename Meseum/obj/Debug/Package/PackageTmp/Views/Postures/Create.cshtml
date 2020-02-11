@@ -1,0 +1,52 @@
+﻿@model Meseum.Models.Posture
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Postures</h3>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name)
+
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description)
+
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-12 text-center">
+                    <input type="submit" value="Create" class="btn btn-success" />
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

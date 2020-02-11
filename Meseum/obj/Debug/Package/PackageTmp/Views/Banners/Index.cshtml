@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Meseum.Models.Banner>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Banner</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Caption)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

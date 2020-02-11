@@ -123,3 +123,13 @@ E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.someCha
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.detailsinaboutus.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.ImageToNews.resources
 E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.filesToNews.resources
+E:\Projects\Meseum\Meseum\bin\System.Net.Http.Formatting.dll
+E:\Projects\Meseum\Meseum\bin\System.Web.Http.dll
+E:\Projects\Meseum\Meseum\bin\System.Web.Http.WebHost.dll
+E:\Projects\Meseum\Meseum\bin\System.Net.Http.Formatting.xml
+E:\Projects\Meseum\Meseum\bin\System.Web.Http.xml
+E:\Projects\Meseum\Meseum\bin\System.Web.Http.WebHost.xml
+E:\Projects\Meseum\Meseum\obj\Release\Meseum.Migrations.InitialCreate.resources
+E:\Projects\Meseum\Meseum\obj\Release\Meseum.Migrations.somecustompropertiestoidentity.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.loc.resources
+E:\Projects\Meseum\Meseum\obj\Release\Identityproject.Context.Migrations.locCat.resources

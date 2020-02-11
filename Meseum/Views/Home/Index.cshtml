@@ -246,14 +246,14 @@
                 {
                     <div class="single-events">
                         <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
-                        <a href='@Url.Action("DetailUser", "Events")?id=@item.Id' ><h4>@item.Title</h4></a>
+                        <a href='@Url.Action("DetailsUser", "Events")?id=@item.Id' ><h4>@item.Title</h4></a>
                         <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
                         <div class="description">
                             @Html.Raw(item.Description)
                         </div>
                                 @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
                         
-                        <a href="@Url.Action("DetailUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
+                        <a href="@Url.Action("DetailsUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
                     </div>
                 }
             </div>
@@ -263,7 +263,7 @@
                     foreach (var item in Model.Events.ToList().GetRange(count / 2, (count - count / 2)))
                     {
                         <div class="single-events">
-                            <a href='@Url.Action("DetailUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                            <a href='@Url.Action("DetailsUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
                             <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
                             <div class="description">
                                 @Html.Raw(item.Description)

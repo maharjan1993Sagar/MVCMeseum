@@ -13,9 +13,13 @@ namespace Meseum.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("Role", this.Role.ToString()));
             return userIdentity;
         }
+        public string Role { get; set; }
+        public bool Status { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

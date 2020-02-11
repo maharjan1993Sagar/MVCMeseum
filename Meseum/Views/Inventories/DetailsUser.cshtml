@@ -17,7 +17,7 @@
                 <h1 class="text-white">
                     Inventories
                 </h1>
-                <p class="text-white link-nav"><a href="@Url.Action("IndexUser","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailUser","Inventories")"> Inventories</a></p>
+                <p class="text-white link-nav"><a href="@Url.Action("Index","Home")">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="@Url.Action("DetailsUser","Inventories")"> Inventories</a></p>
             </div>
         </div>
     </div>
@@ -46,23 +46,23 @@
             <div class="section-top-border">
                 <div class="col-md-12">
 
-                    <h3 class="mb-30">Images</h3>
-
+                    <h3>Images</h3>
+                  
                     @foreach (var item in Model.Files.Where(m => m.Type == "Image"))
                     {
                         <div class="col-md-3">
                             <a data-gallery="bookGallery" data-caption="@item.Name" data-group="a" href="@Url.Content(item.path)">
-                                <img src="@Url.Content(item.path)" alt="Book Image" height='180px' width='200px'>
+                                <img src="@Url.Content(item.path)" alt="Book Image" height='180px' width='200px' onerror="this.onerror=null;this.src='/Admin/notfound.jpg'">
                             </a>
                         </div>
                     }
-
+                    
                 </div>
             </div>
             <div class="section-top-border">
                 <div class="col-md-12">
 
-                    <h3 class="mb-30">Audio</h3>
+                    <h3>Audio</h3>
 
                     <table id="tblAudio" class="table table-bordered table-striped">
                         <thead>
@@ -94,9 +94,9 @@
                 </div>
             </div>
             <div class="section-top-border">
-                <div class="row">
+                <div class="col-md-12">
 
-                    <h3 class="mb-30">Videos</h3>
+                    <h3>Videos</h3>
 
                     @foreach (var item in Model.Files.Where(m => m.Type == "Video"))
                     {

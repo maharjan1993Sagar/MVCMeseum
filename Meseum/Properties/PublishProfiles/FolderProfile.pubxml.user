@@ -42,6 +42,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/gulpfile.js">
       <publishTime>12/30/2019 10:43:06</publishTime>
     </File>
+    <File Include="Admin/images.jpg">
+      <publishTime>02/11/2020 08:50:21</publishTime>
+    </File>
     <File Include="Admin/img/meseum.ico">
       <publishTime>12/30/2019 10:48:38</publishTime>
     </File>
@@ -77,6 +80,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Admin/login.html">
       <publishTime>12/30/2019 10:43:06</publishTime>
+    </File>
+    <File Include="Admin/notFound.jpg">
+      <publishTime>01/26/2020 16:01:36</publishTime>
     </File>
     <File Include="Admin/package-lock.json">
       <publishTime>12/30/2019 10:43:06</publishTime>
@@ -5379,6 +5385,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/vendor/jquery/jquery.slim.min.map">
       <publishTime>12/30/2019 10:43:11</publishTime>
     </File>
+    <File Include="Admin/VideoIcon.png">
+      <publishTime>02/11/2020 08:50:56</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
@@ -5407,10 +5416,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2017 13:15:20</publishTime>
     </File>
     <File Include="bin/Meseum.dll">
-      <publishTime>01/14/2020 16:35:06</publishTime>
+      <publishTime>02/11/2020 10:16:54</publishTime>
     </File>
     <File Include="bin/Meseum.pdb">
-      <publishTime>01/14/2020 16:35:06</publishTime>
+      <publishTime>02/11/2020 10:16:54</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>04/24/2018 12:47:38</publishTime>
@@ -5601,8 +5610,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>02/01/2018 12:16:32</publishTime>
@@ -5624,6 +5642,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="Ckeditor/config.js">
+      <publishTime>01/30/2020 12:54:00</publishTime>
+    </File>
+    <File Include="Ckeditor/ImageBrowser.aspx">
+      <publishTime>01/30/2020 12:54:00</publishTime>
+    </File>
+    <File Include="Ckeditor/LinkBrowser.aspx">
+      <publishTime>01/30/2020 12:54:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>12/27/2019 18:02:54</publishTime>
@@ -5679,6 +5706,1050 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>12/27/2019 18:02:54</publishTime>
     </File>
+    <File Include="Scripts/ckeditor/adapters/jquery.js">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/CHANGES.html">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor.asp">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor.js">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor.pack">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor.php">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor_basic.js">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor_basic_source.js">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor_php4.php">
+      <publishTime>01/26/2020 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor_php5.php">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/ckeditor_source.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/config.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/contents.css">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/images/spacer.gif">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/INSTALL.html">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/af.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ar.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/bg.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/bn.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/bs.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ca.js">
+      <publishTime>01/26/2020 14:02:22</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/cs.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/cy.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/da.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/de.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/el.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/en-au.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/en-ca.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/en-gb.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/en.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/eo.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/es.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/et.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/eu.js">
+      <publishTime>01/26/2020 14:02:21</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/fa.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/fi.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/fo.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/fr-ca.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/fr.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/gl.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/gu.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/he.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/hi.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/hr.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/hu.js">
+      <publishTime>01/26/2020 14:02:20</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/id.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/is.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/it.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ja.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ka.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/km.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ko.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/lt.js">
+      <publishTime>01/26/2020 14:02:19</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/lv.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/mk.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/mn.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ms.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/nb.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/nl.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/no.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/pl.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/pt.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ro.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ru.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/sk.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/sl.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/sr-latn.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/sr.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/sv.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/th.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/tr.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/ug.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/uk.js">
+      <publishTime>01/26/2020 14:02:18</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/vi.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/zh.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/_languages.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/LICENSE.html">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/cs.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/cy.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/da.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/de.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/el.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/en.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/eo.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/fa.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/fi.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/fr.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/gu.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/he.js">
+      <publishTime>01/26/2020 14:02:17</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/it.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/mk.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/nb.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/nl.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/no.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/ro.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/tr.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/ug.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/vi.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:16</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/a11yhelp/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/about/dialogs/about.js">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/about/dialogs/logo_ckeditor.png">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/adobeair/plugin.js">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/ajax/plugin.js">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/autogrow/plugin.js">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/bbcode/plugin.js">
+      <publishTime>01/26/2020 14:02:15</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/clipboard/dialogs/paste.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/colordialog/dialogs/colordialog.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/bg.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/cs.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/cy.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/da.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/de.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/el.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/en.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/eo.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/et.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/fa.js">
+      <publishTime>01/26/2020 14:02:14</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/fi.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/fr.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/gu.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/he.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/hr.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/it.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/nb.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/nl.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/no.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/pl.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/tr.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/ug.js">
+      <publishTime>01/26/2020 14:02:13</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/uk.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/vi.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/devtools/plugin.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/dialog/dialogDefinition.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/div/dialogs/div.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/docprops/dialogs/docprops.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/docprops/plugin.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/find/dialogs/find.js">
+      <publishTime>01/26/2020 14:02:12</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/flash/dialogs/flash.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/flash/images/placeholder.png">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/button.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/checkbox.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/form.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/hiddenfield.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/radio.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/select.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/textarea.js">
+      <publishTime>01/26/2020 14:02:11</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/dialogs/textfield.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/forms/images/hiddenfield.gif">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/iframe/dialogs/iframe.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/iframe/images/placeholder.png">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/iframedialog/plugin.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/image/dialogs/image.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/link/dialogs/anchor.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/link/dialogs/link.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/link/images/anchor.gif">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/liststyle/dialogs/liststyle.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/pagebreak/images/pagebreak.gif">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/pastefromword/filter/default.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/pastetext/dialogs/pastetext.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/dialogs/placeholder.js">
+      <publishTime>01/26/2020 14:02:10</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/bg.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/cs.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/cy.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/da.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/de.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/el.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/en.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/eo.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/et.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/fa.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/fi.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/fr.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/he.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/hr.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/it.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/nb.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/nl.js">
+      <publishTime>01/26/2020 14:02:09</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/no.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/pl.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/tr.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/ug.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/uk.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/vi.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/placeholder.gif">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/placeholder/plugin.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/preview/preview.html">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/scayt/dialogs/options.js">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/scayt/dialogs/toolbar.css">
+      <publishTime>01/26/2020 14:02:08</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_address.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_blockquote.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_div.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h1.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h2.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h3.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h4.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h5.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_h6.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_p.png">
+      <publishTime>01/26/2020 14:02:07</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/showblocks/images/block_pre.png">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/dialogs/smiley.js">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/angel_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/angry_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/broken_heart.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/confused_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/cry_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/devil_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/embaressed_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/envelope.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/heart.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/kiss.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/lightbulb.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/omg_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/regular_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/sad_smile.gif">
+      <publishTime>01/26/2020 14:02:06</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/shades_smile.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/teeth_smile.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/thumbs_down.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/thumbs_up.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/tounge_smile.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/smiley/images/wink_smile.gif">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/dialogs/specialchar.js">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/cs.js">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/cy.js">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/de.js">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/el.js">
+      <publishTime>01/26/2020 14:02:05</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/en.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/eo.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/et.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/fa.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/fi.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/fr.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/he.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/hr.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/it.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/nb.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/nl.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/no.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/tr.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/ug.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:04</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/specialchar/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/styles/styles/default.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/stylesheetparser/plugin.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/table/dialogs/table.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/tableresize/plugin.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/tabletools/dialogs/tableCell.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/templates/dialogs/templates.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/templates/templates/default.js">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/templates/templates/images/template1.gif">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/templates/templates/images/template2.gif">
+      <publishTime>01/26/2020 14:02:03</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/templates/templates/images/template3.gif">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/dialogs/uicolor.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/bg.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/cs.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/cy.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/da.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/de.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/el.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/en.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/eo.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/et.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/fa.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/fi.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/fr.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/he.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/hr.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/it.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/mk.js">
+      <publishTime>01/26/2020 14:02:02</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/nb.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/nl.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/no.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/pl.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/pt-br.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/tr.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/ug.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/uk.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/vi.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/zh-cn.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/lang/_translationstatus.txt">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/plugin.js">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/uicolor.gif">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/assets/hue_bg.png">
+      <publishTime>01/26/2020 14:02:01</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/assets/hue_thumb.png">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/assets/picker_mask.png">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/assets/picker_thumb.png">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/assets/yui.css">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/uicolor/yui/yui.js">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/wsc/dialogs/ciframe.html">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/wsc/dialogs/tmpFrameset.html">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/wsc/dialogs/wsc.css">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/wsc/dialogs/wsc.js">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/plugins/xml/plugin.js">
+      <publishTime>01/26/2020 14:02:00</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/dialog.css">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/editor.css">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/icons.png">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/icons_rtl.png">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/dialog_sides.gif">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/dialog_sides.png">
+      <publishTime>01/26/2020 14:01:59</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/dialog_sides_rtl.png">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/mini.gif">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/noimage.png">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/sprites.png">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/sprites_ie6.png">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/images/toolbar_start.gif">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/skin.js">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/kama/templates.css">
+      <publishTime>01/26/2020 14:01:58</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/dialog.css">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/editor.css">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/icons.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/icons_rtl.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/dialog_sides.gif">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/dialog_sides.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/dialog_sides_rtl.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/mini.gif">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/noimage.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/sprites.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/images/sprites_ie6.png">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/skin.js">
+      <publishTime>01/26/2020 14:01:57</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/office2003/templates.css">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/dialog.css">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/editor.css">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/icons.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/icons_rtl.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/dialog_sides.gif">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/dialog_sides.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/dialog_sides_rtl.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/mini.gif">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/noimage.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/sprites.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/sprites_ie6.png">
+      <publishTime>01/26/2020 14:01:56</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/images/toolbar_start.gif">
+      <publishTime>01/26/2020 14:01:55</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/skin.js">
+      <publishTime>01/26/2020 14:01:55</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/skins/v2/templates.css">
+      <publishTime>01/26/2020 14:01:55</publishTime>
+    </File>
+    <File Include="Scripts/ckeditor/themes/default/theme.js">
+      <publishTime>01/26/2020 14:01:54</publishTime>
+    </File>
     <File Include="Scripts/dropzone.js">
       <publishTime>01/07/2020 10:51:45</publishTime>
     </File>
@@ -5714,6 +6785,1050 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>12/27/2019 18:03:03</publishTime>
+    </File>
+    <File Include="User/css/asstes/css/style1.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/asstes/css/styles.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/bootstrap.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/bootstrap.min.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/fonts/lg.eot">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/fonts/lg.svg">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/fonts/lg.ttf">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/fonts/lg.woff">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/jquery-ui.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/morris.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/nepali.datepicker.v2.2.min.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/owl.carousel.min.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/photoViewer/docs.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/photoViewer/photoviewer.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/photoViewer/snack-helper.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/photoViewer/snack.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/sb-admin-2.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/sb-admin-2.min.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/css/tcal.css">
+      <publishTime>01/27/2020 10:17:30</publishTime>
+    </File>
+    <File Include="User/fileUploader/css/jquery.fileupload-noscript.css">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/css/jquery.fileupload-ui-noscript.css">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/css/jquery.fileupload-ui.css">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/css/jquery.fileupload.css">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/cors/jquery.postmessage-transport.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/cors/jquery.xdr-transport.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/demo.js">
+      <publishTime>01/28/2020 11:39:43</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-audio.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-image.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-process.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-ui.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-validate.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload-video.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.fileupload.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/jquery.iframe-transport.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/fileUploader/js/vendor/jquery.ui.widget.js">
+      <publishTime>01/13/2020 21:28:14</publishTime>
+    </File>
+    <File Include="User/logo.png">
+      <publishTime>09/06/2016 15:04:18</publishTime>
+    </File>
+    <File Include="User/logo_s.gif">
+      <publishTime>01/27/2020 10:59:45</publishTime>
+    </File>
+    <File Include="User/Scripts/bootstrap.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/bootstrap.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.min.map">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.slim.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-ui-1.12.1.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery-ui-1.12.1.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery.dataTables.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery.validate.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery.validate.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/modernizr-2.8.3.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/nepali.datepicker.v2.2.min.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Scripts/photoViewer.js">
+      <publishTime>01/27/2020 10:17:38</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/fontawesome-webfont.eot">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/fontawesome-webfont.svg">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/fontawesome-webfont.ttf">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/fontawesome-webfont.woff">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap-theme.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap-theme.css.map">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap-theme.min.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap-theme.min.css.map">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap.css.map">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap.min.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/bootstrap.min.css.map">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/BreakingNews.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/font-awesome.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/img/dots.png">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/jquery.dataTables.min.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Js/breakingNews.js">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Js/jquery.smartmenus.bootstrap.js">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Js/jquery.smartmenus.js">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Js/lightbox.js">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Js/lightbox.min.js">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/img/close.png">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/img/loading.gif">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/img/next.png">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/img/prev.png">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/lightbox.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/lightbox/css/lightbox.min.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/photoViewer/docs.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/photoViewer/photoviewer.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/photoViewer/snack-helper.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/photoViewer/snack.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/Site.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/smartmenus/jquery.smartmenus.bootstrap.css">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="User/Styles/style.css">
+      <publishTime>01/27/2020 12:29:33</publishTime>
+    </File>
+    <File Include="User/Styles/uploads/logo-np.png">
+      <publishTime>01/27/2020 10:17:25</publishTime>
+    </File>
+    <File Include="UserTemp/css/.DS_Store">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/animate.min.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/bootstrap.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/bootstrap.map">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/bootstrap/bootstrap-grid.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/bootstrap/bootstrap-reboot.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/bootstrap/bootstrap.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/font-awesome.min.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/jquery.DonutWidget.min.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/jquerysctipttop.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/linearicons.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/magnific-popup.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/main.css">
+      <publishTime>02/04/2020 16:26:10</publishTime>
+    </File>
+    <File Include="UserTemp/css/main.map">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/nice-select.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/owl.carousel.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/css/theme/pages.css">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/fontawesome-webfont.eot">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/fontawesome-webfont.svg">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/fontawesome-webfont.ttf">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/fontawesome-webfont.woff">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/fontawesome-webfont.woff2">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/FontAwesome.otf">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/Linearicons-Free.eot">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/Linearicons-Free.svg">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/Linearicons-Free.ttf">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/Linearicons-Free.woff">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/fonts/Linearicons-Free.woff2">
+      <publishTime>01/29/2020 15:54:50</publishTime>
+    </File>
+    <File Include="UserTemp/img/.DS_Store">
+      <publishTime>01/29/2020 15:54:46</publishTime>
+    </File>
+    <File Include="UserTemp/img/b1.jpg">
+      <publishTime>01/29/2020 15:54:46</publishTime>
+    </File>
+    <File Include="UserTemp/img/b2.jpg">
+      <publishTime>01/29/2020 15:54:46</publishTime>
+    </File>
+    <File Include="UserTemp/img/b3.jpg">
+      <publishTime>01/29/2020 15:54:46</publishTime>
+    </File>
+    <File Include="UserTemp/img/b4.jpg">
+      <publishTime>01/29/2020 15:54:46</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/.DS_Store">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/blog-banner.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/c1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/c2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/c3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/c4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/c5.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/l1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/l2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/l3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/l4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/next.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/p1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/p2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/p3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/p4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/prev.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/r1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/r2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/r3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/r4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/s-img.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/slider.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/user.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/blog/user2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/e1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/e2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/e3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/a.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/a2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/d.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/disabled-check.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/disabled-radio.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f5.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f6.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f7.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/f8.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g2.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g3.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g4.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g5.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g6.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g7.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/g8.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/primary-check.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/primary-radio.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/success-check.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/elements/success-radio.png">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/g1.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/g10.jpg">
+      <publishTime>01/29/2020 15:54:47</publishTime>
+    </File>
+    <File Include="UserTemp/img/g11.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g12.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g2.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g3.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g4.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g5.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g6.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g7.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g8.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/g9.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/header-bg.jpg">
+      <publishTime>01/29/2020 16:01:00</publishTime>
+    </File>
+    <File Include="UserTemp/img/header.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/logo.png">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/about-img.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ct1.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex1.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex2.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex3.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex4.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex5.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/ex6.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w1.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w2.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w3.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w4.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w5.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/pages/w6.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan.jpg">
+      <publishTime>01/29/2020 16:40:22</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan1.jpg">
+      <publishTime>01/29/2020 16:02:19</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan11.jpg">
+      <publishTime>01/29/2020 16:02:29</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan12.jpg">
+      <publishTime>01/29/2020 16:02:38</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan13.jpg">
+      <publishTime>01/29/2020 16:02:53</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan14.jpg">
+      <publishTime>01/29/2020 16:03:02</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan2.jpg">
+      <publishTime>01/29/2020 16:03:11</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan3.jpg">
+      <publishTime>01/29/2020 16:01:11</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan4.jpg">
+      <publishTime>01/29/2020 16:01:19</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan5.jpg">
+      <publishTime>01/29/2020 16:01:29</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan6.jpg">
+      <publishTime>01/29/2020 16:01:40</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan7.jpg">
+      <publishTime>01/29/2020 16:01:50</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan8.jpg">
+      <publishTime>01/29/2020 16:02:00</publishTime>
+    </File>
+    <File Include="UserTemp/img/patan9.jpg">
+      <publishTime>01/29/2020 16:02:11</publishTime>
+    </File>
+    <File Include="UserTemp/img/u1.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/u2.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/u3.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/img/u4.jpg">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/.DS_Store">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/easing.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/hoverIntent.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/imagesloaded.pkgd.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/jquery.ajaxchimp.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/jquery.magnific-popup.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/jquery.nice-select.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/jquery.sticky.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/justified.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/mail-script.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/main.js">
+      <publishTime>02/04/2020 15:40:20</publishTime>
+    </File>
+    <File Include="UserTemp/js/owl.carousel.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/parallax.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/slick.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/superfish.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/superfish.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/vendor/bootstrap.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/js/vendor/jquery-2.2.4.min.js">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/.DS_Store">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/.DS_Store">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/bootstrap-grid.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/bootstrap-reboot.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/bootstrap.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_alert.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_background-variant.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_badge.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_border-radius.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_box-shadow.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_breakpoints.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_buttons.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_caret.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_clearfix.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_float.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_forms.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_gradients.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_grid-framework.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_grid.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_hover.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_image.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_list-group.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_lists.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_nav-divider.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_navbar-align.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_pagination.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_reset-text.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_resize.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_screen-reader.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_size.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_table-row.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_text-emphasis.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_text-hide.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_text-truncate.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_transition.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/mixins/_visibility.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_align.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_background.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_borders.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_clearfix.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_display.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_embed.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_flex.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_float.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_position.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_screenreaders.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_sizing.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_spacing.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_text.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/utilities/_visibility.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_alert.scss">
+      <publishTime>01/29/2020 15:54:48</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_badge.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_breadcrumb.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_button-group.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_buttons.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_card.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_carousel.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_close.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_code.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_custom-forms.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_dropdown.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_forms.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_functions.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_grid.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_images.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_input-group.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_jumbotron.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_list-group.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_media.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_mixins.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_modal.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_nav.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_navbar.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_pagination.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_popover.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_print.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_progress.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_reboot.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_root.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_tables.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_tooltip.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_transitions.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_type.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_utilities.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/bootstrap/_variables.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/main.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/.DS_Store">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_elements.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_flexbox.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_footer.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_header.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_home.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_mixins.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_pages.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_reset.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="UserTemp/scss/theme/_variables.scss">
+      <publishTime>01/29/2020 15:54:49</publishTime>
+    </File>
+    <File Include="Views/AboutUs/Create.cshtml">
+      <publishTime>02/06/2020 14:50:12</publishTime>
+    </File>
+    <File Include="Views/AboutUs/Delete.cshtml">
+      <publishTime>02/05/2020 16:28:39</publishTime>
+    </File>
+    <File Include="Views/AboutUs/Details.cshtml">
+      <publishTime>01/30/2020 13:38:29</publishTime>
+    </File>
+    <File Include="Views/AboutUs/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/AboutUs/Edit.cshtml">
+      <publishTime>02/05/2020 16:44:24</publishTime>
+    </File>
+    <File Include="Views/AboutUs/Index.cshtml">
+      <publishTime>02/05/2020 16:26:56</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>12/27/2019 18:03:04</publishTime>
@@ -5751,8 +7866,41 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
       <publishTime>12/27/2019 18:03:04</publishTime>
     </File>
+    <File Include="Views/Articles/Create.cshtml">
+      <publishTime>02/06/2020 15:22:58</publishTime>
+    </File>
+    <File Include="Views/Articles/Delete.cshtml">
+      <publishTime>01/30/2020 12:58:57</publishTime>
+    </File>
+    <File Include="Views/Articles/Details.cshtml">
+      <publishTime>01/30/2020 12:59:00</publishTime>
+    </File>
+    <File Include="Views/Articles/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Articles/Edit.cshtml">
+      <publishTime>02/06/2020 15:22:50</publishTime>
+    </File>
+    <File Include="Views/Articles/Index.cshtml">
+      <publishTime>02/05/2020 16:42:12</publishTime>
+    </File>
+    <File Include="Views/Banners/Create.cshtml">
+      <publishTime>02/06/2020 15:21:04</publishTime>
+    </File>
+    <File Include="Views/Banners/Delete.cshtml">
+      <publishTime>01/30/2020 13:56:09</publishTime>
+    </File>
+    <File Include="Views/Banners/Details.cshtml">
+      <publishTime>01/30/2020 13:56:12</publishTime>
+    </File>
+    <File Include="Views/Banners/Edit.cshtml">
+      <publishTime>02/06/2020 15:21:32</publishTime>
+    </File>
+    <File Include="Views/Banners/Index.cshtml">
+      <publishTime>02/05/2020 16:50:16</publishTime>
+    </File>
     <File Include="Views/Categories/Create.cshtml">
-      <publishTime>01/14/2020 12:01:55</publishTime>
+      <publishTime>02/06/2020 17:31:49</publishTime>
     </File>
     <File Include="Views/Categories/Delete.cshtml">
       <publishTime>12/27/2019 18:25:40</publishTime>
@@ -5761,40 +7909,115 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2019 18:25:42</publishTime>
     </File>
     <File Include="Views/Categories/Edit.cshtml">
-      <publishTime>01/14/2020 12:04:17</publishTime>
+      <publishTime>02/06/2020 17:32:04</publishTime>
     </File>
     <File Include="Views/Categories/Index.cshtml">
-      <publishTime>12/30/2019 11:02:03</publishTime>
+      <publishTime>02/06/2020 17:45:38</publishTime>
+    </File>
+    <File Include="Views/Events/Create.cshtml">
+      <publishTime>02/05/2020 17:14:01</publishTime>
+    </File>
+    <File Include="Views/Events/Delete.cshtml">
+      <publishTime>01/30/2020 12:59:42</publishTime>
+    </File>
+    <File Include="Views/Events/Details.cshtml">
+      <publishTime>01/30/2020 12:59:44</publishTime>
+    </File>
+    <File Include="Views/Events/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Events/Edit.cshtml">
+      <publishTime>02/06/2020 15:20:29</publishTime>
+    </File>
+    <File Include="Views/Events/Index.cshtml">
+      <publishTime>02/11/2020 08:42:36</publishTime>
+    </File>
+    <File Include="Views/Galleries/Create.cshtml">
+      <publishTime>02/06/2020 14:42:08</publishTime>
+    </File>
+    <File Include="Views/Galleries/Delete.cshtml">
+      <publishTime>01/30/2020 13:39:20</publishTime>
+    </File>
+    <File Include="Views/Galleries/Details.cshtml">
+      <publishTime>01/30/2020 13:39:23</publishTime>
+    </File>
+    <File Include="Views/Galleries/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Galleries/Edit.cshtml">
+      <publishTime>02/06/2020 14:42:59</publishTime>
+    </File>
+    <File Include="Views/Galleries/Gallery.cshtml">
+      <publishTime>02/11/2020 09:08:03</publishTime>
+    </File>
+    <File Include="Views/Galleries/Index.cshtml">
+      <publishTime>02/09/2020 09:47:10</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>12/27/2019 18:02:46</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>12/27/2019 18:02:46</publishTime>
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Home/GetFiles.cshtml">
+      <publishTime>02/11/2020 09:04:56</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/27/2019 18:02:46</publishTime>
+      <publishTime>02/05/2020 15:22:01</publishTime>
+    </File>
+    <File Include="Views/Home/IndexAdmin.cshtml">
+      <publishTime>02/11/2020 10:05:40</publishTime>
+    </File>
+    <File Include="Views/Home/IndexUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
     </File>
     <File Include="Views/Inventories/Create.cshtml">
-      <publishTime>01/14/2020 16:40:38</publishTime>
+      <publishTime>02/06/2020 14:55:57</publishTime>
     </File>
     <File Include="Views/Inventories/Delete.cshtml">
-      <publishTime>12/27/2019 18:27:09</publishTime>
+      <publishTime>01/26/2020 14:03:20</publishTime>
     </File>
     <File Include="Views/Inventories/Details.cshtml">
-      <publishTime>12/27/2019 18:27:11</publishTime>
+      <publishTime>01/26/2020 13:33:28</publishTime>
+    </File>
+    <File Include="Views/Inventories/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
     </File>
     <File Include="Views/Inventories/Edit.cshtml">
-      <publishTime>01/14/2020 16:39:23</publishTime>
+      <publishTime>02/06/2020 14:57:01</publishTime>
     </File>
     <File Include="Views/Inventories/Index.cshtml">
-      <publishTime>01/14/2020 12:23:39</publishTime>
+      <publishTime>02/11/2020 08:46:57</publishTime>
+    </File>
+    <File Include="Views/Inventories/IndexUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
     </File>
     <File Include="Views/Inventories/Upload.cshtml">
-      <publishTime>01/07/2020 16:33:17</publishTime>
+      <publishTime>01/28/2020 11:50:32</publishTime>
+    </File>
+    <File Include="Views/Inventories/Uploads.cshtml">
+      <publishTime>01/28/2020 11:58:19</publishTime>
+    </File>
+    <File Include="Views/Links/Create.cshtml">
+      <publishTime>02/06/2020 15:05:17</publishTime>
+    </File>
+    <File Include="Views/Links/Delete.cshtml">
+      <publishTime>01/30/2020 13:40:17</publishTime>
+    </File>
+    <File Include="Views/Links/Details.cshtml">
+      <publishTime>01/30/2020 13:40:20</publishTime>
+    </File>
+    <File Include="Views/Links/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Links/Edit.cshtml">
+      <publishTime>02/06/2020 15:05:27</publishTime>
+    </File>
+    <File Include="Views/Links/Index.cshtml">
+      <publishTime>02/06/2020 15:02:45</publishTime>
     </File>
     <File Include="Views/Locations/Create.cshtml">
-      <publishTime>01/14/2020 12:08:59</publishTime>
+      <publishTime>02/06/2020 15:23:51</publishTime>
     </File>
     <File Include="Views/Locations/Delete.cshtml">
       <publishTime>12/27/2019 18:25:09</publishTime>
@@ -5803,10 +8026,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2019 18:25:10</publishTime>
     </File>
     <File Include="Views/Locations/Edit.cshtml">
-      <publishTime>01/14/2020 12:09:43</publishTime>
+      <publishTime>02/06/2020 17:33:54</publishTime>
     </File>
     <File Include="Views/Locations/Index.cshtml">
-      <publishTime>12/30/2019 11:03:12</publishTime>
+      <publishTime>02/06/2020 15:06:41</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>12/27/2019 18:03:04</publishTime>
@@ -5827,22 +8050,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2019 18:03:04</publishTime>
     </File>
     <File Include="Views/NewsEvents/Create.cshtml">
-      <publishTime>01/14/2020 12:25:27</publishTime>
+      <publishTime>02/06/2020 15:08:21</publishTime>
     </File>
     <File Include="Views/NewsEvents/Delete.cshtml">
       <publishTime>12/27/2019 18:26:39</publishTime>
     </File>
     <File Include="Views/NewsEvents/Details.cshtml">
-      <publishTime>12/27/2019 18:26:41</publishTime>
+      <publishTime>01/26/2020 13:11:26</publishTime>
+    </File>
+    <File Include="Views/NewsEvents/DetailsUser.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
     </File>
     <File Include="Views/NewsEvents/Edit.cshtml">
-      <publishTime>01/14/2020 12:25:27</publishTime>
+      <publishTime>02/06/2020 15:09:37</publishTime>
     </File>
     <File Include="Views/NewsEvents/Index.cshtml">
-      <publishTime>12/30/2019 11:04:05</publishTime>
+      <publishTime>02/11/2020 08:43:09</publishTime>
+    </File>
+    <File Include="Views/NewsEvents/IndexUser.cshtml">
+      <publishTime>01/27/2020 13:27:08</publishTime>
     </File>
     <File Include="Views/Postures/Create.cshtml">
-      <publishTime>01/14/2020 12:11:22</publishTime>
+      <publishTime>02/06/2020 15:13:04</publishTime>
     </File>
     <File Include="Views/Postures/Delete.cshtml">
       <publishTime>12/27/2019 18:26:08</publishTime>
@@ -5851,10 +8080,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2019 18:26:10</publishTime>
     </File>
     <File Include="Views/Postures/Edit.cshtml">
-      <publishTime>01/14/2020 12:12:37</publishTime>
+      <publishTime>02/06/2020 15:17:25</publishTime>
     </File>
     <File Include="Views/Postures/Index.cshtml">
-      <publishTime>12/30/2019 11:02:36</publishTime>
+      <publishTime>02/06/2020 15:14:39</publishTime>
+    </File>
+    <File Include="Views/Queries/Create.cshtml">
+      <publishTime>01/30/2020 13:41:04</publishTime>
+    </File>
+    <File Include="Views/Queries/Delete.cshtml">
+      <publishTime>01/30/2020 13:41:07</publishTime>
+    </File>
+    <File Include="Views/Queries/Details.cshtml">
+      <publishTime>01/30/2020 13:41:10</publishTime>
+    </File>
+    <File Include="Views/Queries/Edit.cshtml">
+      <publishTime>01/30/2020 13:41:13</publishTime>
+    </File>
+    <File Include="Views/Queries/Index.cshtml">
+      <publishTime>02/06/2020 15:16:12</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/27/2019 18:03:04</publishTime>
@@ -5866,7 +8110,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2019 18:03:04</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>12/30/2019 10:54:12</publishTime>
+      <publishTime>02/10/2020 16:58:06</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutArt.cshtml">
+      <publishTime>02/11/2020 09:09:54</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutUser.cshtml">
+      <publishTime>01/29/2020 16:47:21</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>01/13/2020 11:23:01</publishTime>
@@ -5878,7 +8128,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/07/2020 12:25:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/13/2020 11:35:56</publishTime>
+      <publishTime>02/11/2020 10:15:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

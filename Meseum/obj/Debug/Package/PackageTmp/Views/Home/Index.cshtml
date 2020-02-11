@@ -1,0 +1,337 @@
+﻿@model Meseum.ViewModel.HomeVM
+@{
+    Layout = "~/Views/Shared/_LayoutArt.cshtml";
+}
+@section styles{
+    <style>
+        div.single-events div.description {
+            width: 540px;
+            height: 44px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        div.single-blog div.description {
+            width: 255px;
+            height: 44px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        p.description {
+            width: 360px;
+            height: 44px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <!--Carousel Wrapper-->
+            @*<div id="carousel-example-2" class="full-div carousel slide carousel-fade" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                    </ol>
+                    <!--/.Indicators-->
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <div class="view">
+                                <img  class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                                     alt="First slide">
+                                <div class="mask rgba-black-light"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Light mask</h3>
+                                <p>First text</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!--Mask color-->
+                            <div class="view">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                                     alt="Second slide">
+                                <div class="mask rgba-black-strong"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Strong mask</h3>
+                                <p>Secondary text</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!--Mask color-->
+                            <div class="view">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                                     alt="Third slide">
+                                <div class="mask rgba-black-slight"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Slight mask</h3>
+                                <p>Third text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Slides-->
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+                </div>*@
+            <!--</div>-->
+            <!--/.Carousel Wrapper-->
+            <div class="banner-content col-lg-8">
+                <h6 class="text-white">Open Now, @DateTime.Now.ToString("MMMMM"),@DateTime.Now.Year</h6>
+                <h1 class="text-white">
+                    Welcome to Patan Museum
+                </h1>
+                <p class="pt-20 pb-20 text-white">
+                    NEPAL'S FIRST SELF SUSTAINABLE MUSEUM. LOCATED AT HEART OF CITY
+                </p>
+                <a href="#" class="primary-btn text-uppercase">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start service Area -->
+<section class="service-area pt-100" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-service">
+                    <span class="lnr lnr-clock"></span>
+                    <h4>Openning Hours</h4>
+                    <p>
+                        Mon - Fri: 10.00am to 05.00pm
+                        Sat: 12.00pm to 03.00 pm
+                        Sunday Closed
+                    </p>
+                    <div class="overlay">
+                        <div class="text">
+                            <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-service">
+                    <span class="lnr lnr-rocket"></span>
+                    <h4>Ongoing Exhibitions</h4>
+                    <p>
+                        Mon - Fri: 10.00am to 05.00pm
+                        Sat: 12.00pm to 03.00 pm
+                        Sunday Closed
+                    </p>
+                    <div class="overlay">
+                        <div class="text">
+                            <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-service">
+                    <span class="lnr lnr-briefcase"></span>
+                    <h4>Openning Events</h4>
+                    <p>
+                        Mon - Fri: 10.00am to 05.00pm
+                        Sat: 12.00pm to 03.00 pm
+                        Sunday Closed
+                    </p>
+                    <div class="overlay">
+                        <div class="text">
+                            <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service Area -->
+<!-- Start quote Area -->
+<section class="quote-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 quote-left">
+                <h1>
+                    <span>NEPAL'S FIRST  </span>  <br>
+                    <span>SELF SUSTAINABLE MUSEUM, </span>  <br>
+                    <span> AT HEART OF CITY</span> .
+                </h1>
+            </div>
+            <div class="col-lg-6 quote-right">
+                <p>
+                    Patan Museum is housed in a courtyard within the Northernmost building complex of the Durbar area. The most picturesque setting of the palace that has been created in so small a place by piety and pride  is known now to the people as Keshav Narayan Chowk after a temple standing at the center of the courtyard dedicated to Keshavnarayan- a form of Lord Vishnu.This part is recorded in the history as Chaukot Durbar or four-cornered-fort-palace.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End quote Area -->
+<!-- Start exibition Area -->
+<section class="exibition-area section-gap" id="exhibitions">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Gallery</h1>
+                    <p>Check out our photo galleries.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-exibition-carusel">
+
+                @foreach (var item in Model.Galleries.ToList())
+                {
+                    <div class="single-exibition item">
+                        <img src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+
+                        <a href='@Url.Action("detailsUser", "Galleries")?id=' @item.Id><h4>@item.Name</h4></a>
+                        <p class="description">
+                            @item.ShortDetails
+                        </p>
+                        <h6 class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</h6>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End exibition Area -->
+<!-- Start upcoming-event Area -->
+<section class="upcoming-event-area section-gap" id="events">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Checkout our Upcoming Events</h1>
+                    <p>Don't miss any events.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{int count = Model.Events.ToList().Count() > 4 ? 4 : Model.Events.Count();
+                int countNews = Model.NewsEvents.ToList().Count > 4 ? 4 : Model.NewsEvents.Count(); }
+            <div class='col-lg-6 event-left'>
+                @foreach (var item in Model.Events.ToList().Take(count < 2 ? count : 2))
+                {
+                    <div class="single-events">
+                        <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                        <a href='@Url.Action("DetailUser", "Events")?id=@item.Id' ><h4>@item.Title</h4></a>
+                        <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
+                        <div class="description">
+                            @Html.Raw(item.Description)
+                        </div>
+                                @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
+                        
+                        <a href="@Url.Action("DetailUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
+                    </div>
+                }
+            </div>
+            <div class='col-lg-6 event-right'>
+                @if (count > 2)
+                {
+                    foreach (var item in Model.Events.ToList().GetRange(count / 2, (count - count / 2)))
+                    {
+                        <div class="single-events">
+                            <a href='@Url.Action("DetailUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                            <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
+                            <div class="description">
+                                @Html.Raw(item.Description)
+                                    @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
+                            </div>
+                            <a href="#" class="primary-btn text-uppercase">View Details</a>
+                            <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End upcoming-event Area -->
+<!-- Start blog Area -->
+<section class="blog-area section-gap" id="blog">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">News and Notice</h1>
+                    <p>Get latest news and notice on patan Museum</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @if (countNews > 0)
+            {
+                foreach (var item in Model.NewsEvents.ToList().Take(countNews))
+                {
+                    <div class="col-lg-3 col-md-6 single-blog">
+                        <div class="thumb">
+                            @if (item.Files == null)
+                            {
+                               
+                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)"alt="" style="height:174px;width:255px;">
+                            }
+                            else
+                            {
+                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="" style="height:174px;width:255px;">
+                            }
+
+                        </div>
+                        <p class="date">@item.UploadDate.ToString("dd MMM yyyy")</p>
+                        <a href="@Url.Action("DetailsUser","NewsEvents")?id=@item.Id">
+                            <h4>
+                                @item.Title.ToString().Substring(0, item.Title.Length <= 50 ? item.Title.Length : 50)
+                            </h4>
+                        </a>
+                        <div class="description">
+                            @Html.Raw(item.Description)
+                        </div>
+                                @*.ToString().Substring(0, item.Description.Length <= 50 ? item.Description.Length : 50)*@
+                      
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("img").error(function () {
+                $(this).unbind("error").attr("src", RootUrl + '/Admin/notfound.jpg');
+            });
+        })
+    </script>
+}
