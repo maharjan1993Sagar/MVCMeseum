@@ -161,15 +161,15 @@ sup {
 }
 
 a {
-  color: #1ea743;
+  color: #603;
   text-decoration: none;
   background-color: transparent;
 }
 
-a:hover {
-  color: #116728;
-  text-decoration: underline;
-}
+    a:hover {
+        color: #652042;
+        text-decoration: underline;
+    }
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -2686,15 +2686,15 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #1cc88a;
-  border-color: #1cc88a;
+  background-color: #603;
+  border-color: #603;
 }
 
-.btn-success:hover {
-  color: #fff;
-  background-color: #17a673;
-  border-color: #169b6b;
-}
+    .btn-success:hover {
+        color: #fff;
+        background-color: #652042;
+        border-color: #652042;
+    }
 
 .btn-success:focus, .btn-success.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(62, 208, 156, 0.5);
@@ -10372,7 +10372,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #1ea743 !important;
+  color: #603 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -10685,10 +10685,10 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #1ea743;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1ea743), to(#116728));
-  background-image: linear-gradient(180deg, #1ea743 10%, #116728 100%);
-  background-size: cover;
+    background-color: #603;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #cb815d), to(#603));
+    background-image: linear-gradient(180deg, #cb815d 10%, #603 100%);
+    background-size: cover;
 }
 
 .bg-gradient-secondary {

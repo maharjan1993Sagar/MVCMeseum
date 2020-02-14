@@ -2503,6 +2503,7 @@
     <Content Include="UserTemp\css\main.css" />
     <Content Include="UserTemp\css\nice-select.css" />
     <Content Include="UserTemp\css\owl.carousel.css" />
+    <Content Include="UserTemp\css\jquery.easyPaginate.js" />
     <Content Include="UserTemp\css\theme\pages.css" />
     <Content Include="UserTemp\fonts\fontawesome-webfont.svg" />
     <Content Include="UserTemp\fonts\Linearicons-Free.svg" />
@@ -2948,6 +2949,7 @@
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Home\GetFiles.cshtml" />
     <Content Include="Views\Home\IndexAdmin.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,7 +14,7 @@ using Meseum.ViewModel;
 
 namespace Meseum.Controllers
 {
-
+   
     public class MeseumApiController : ApiController
     {
         private MeseumContext db = new MeseumContext();
@@ -91,7 +91,7 @@ namespace Meseum.Controllers
             return Ok(location);
         }
         [ResponseType(typeof(InventoryDto))]
-        public IHttpActionResult GetIventory(int id)
+        public IHttpActionResult GetInventory(int id)
         {
             Inventory i = db.Inventories.Include(mbox => mbox.Category).Include(m => m.Location)
                                 .Include(m => m.Files).FirstOrDefault(m => m.Id == id);
@@ -114,7 +114,15 @@ namespace Meseum.Controllers
                 size = i.size,
                 UpdatedAt = i.UpdatedAt,
                 UpdatedBy = i.UpdatedBy,
-                Files = i.Files
+                Files = (from f in i.Files
+                         select new Files
+                         {
+                             Name = f.Name,
+                             path = f.path.Replace("~", "ninc.gov.np/meseum"),
+                             Id = f.Id,
+                             Size = f.Size,
+                             Type = f.Type
+                         }).AsEnumerable()
             };
 
 
@@ -124,6 +132,23 @@ namespace Meseum.Controllers
             }
 
             return Ok(InvDto);
+        }
+        [ResponseType(typeof(Files))]
+        public IHttpActionResult GetFiles(int id)
+        {
+            Inventory i = db.Inventories.Include(mbox => mbox.Category).Include(m => m.Location)
+                                .Include(m => m.Files).FirstOrDefault(m => m.Id == id);
+            IEnumerable<Files> files = (from f in i.Files
+                                        select new Files
+                                        {
+                                            Name = f.Name,
+                                            path = f.path.Replace("~", "ninc.gov.np/meseum"),
+                                            Id = f.Id,
+                                            Size = f.Size,
+                                            Type = f.Type
+                                        }).AsEnumerable();
+          
+            return Ok(files);
         }
 
 

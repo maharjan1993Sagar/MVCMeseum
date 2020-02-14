@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Meseum.Models.Article>
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_layoutArt.cshtml";
+                /**/
+
+                ViewBag.Title = "Details";
+                Layout = "~/Views/Shared/_layoutArt.cshtml";
 }
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
@@ -22,31 +24,66 @@
     <div class="container">
         <div class="section-top-border">
             <h3 class="mb-30">Articles</h3>
-            <div class="progress-table-wrap">
-                <div class="progress-table">
-                    <div class="table-head">
-                        <div class="serial">#</div>
-                        <div class="visit">Article</div>
-                        <div class="visit">Category</div>
-                        <div class="visit">Size</div>
-                        <div class="visit">Download</div>
-                    </div>
+            <table class="table table-responsive tblData">
+                <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Article</th>
+                        <th>Category</th>
+                        <th>Size (MB)</th>
+                        <th>Download</th>
+                    </tr>
 
+                </thead>
+                <tbody>
                     @{int i = 1;}
                     @foreach (var item in Model)
                     {
-
-                        <div class="table-row">
-                            <div class="serial">@i</div>
-                            <div class="visit">@item.File.Name</div>
-                            <div class="visit">@item.Category</div>
-                            <div class="visit">@item.File.Size MB</div>
-                            <div class="visit"><a href="@Url.Action("Download","Articles")?id=@item.Id"><i class="fa fa-download"></i></a></div>
- </div>
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.File.Name</td>
+                            <td>@item.Category</td>
+                            <td>@item.File.Size MB</td>
+                            <td><a href="@Url.Action("Download","Articles")?id=@item.Id"><i class="fa fa-download"></i></a></td>
+                        </tr>
                         { i = i + 1; }
                     }
+                </tbody>
+            </table>
+            @*<div class="progress-table-wrap">
+                               <div class="progress-table">
+                                   <div class="table-head">
+                                       <div class="serial">#</div>
+                                       <div class="visit">Article</div>
+                                       <div class="visit">Category</div>
+                                       <div class="visit">Size</div>
+                                       <div class="visit">Download</div>
+                                   </div>
+
+                                   @{int i = 1;}
+                                   @foreach (var item in Model)
+                                   {
+
+                                       <div class="table-row">
+                                           <div class="serial">@i</div>
+                                           <div class="visit">@item.File.Name</div>
+                                           <div class="visit">@item.Category</div>
+                                           <div class="visit">@item.File.Size MB</div>
+                                           <div class="visit"><a href="@Url.Action("Download","Articles")?id=@item.Id"><i class="fa fa-download"></i></a></div>
                 </div>
-            </div>
+                                       { i = i + 1; }
+                                   }
+                               </div>
+                           </div>*@
         </div>
     </div>
 </div>
+@section scripts{
+    <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script>
+        $(function () {
+            $(".tblData").DataTable();
+        })
+    </script>
+}

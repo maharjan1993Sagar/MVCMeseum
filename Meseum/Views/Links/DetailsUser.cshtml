@@ -1,9 +1,15 @@
 ﻿@model IEnumerable<Meseum.Models.Link>
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_layoutArt.cshtml";
+                /**/
+
+                ViewBag.Title = "Details";
+                Layout = "~/Views/Shared/_layoutArt.cshtml";
 }
+@section styles{
+   <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+}
+
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -22,25 +28,57 @@
     <div class="container">
         <div class="section-top-border">
             <h3 class="mb-30">Related Links</h3>
-            <div class="progress-table-wrap">
-                <div class="progress-table">
-                    <div class="table-head">
-                        <div class="serial">#</div>
-                        <div class="country">Links</div>
-                    </div>
+            <table class="table table-responsive tblData">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Link</th>
 
+                    </tr>
+                </thead>
+                <tbody>
                     @{int i = 1;}
                     @foreach (var item in Model)
                     {
+                        <tr>
+                            <td>@i</td>
+                            <td><a href="@item.LinkUrl">@item.Name</a> </td>
+                        </tr>
 
-                    <div class="table-row">
-                        <div class="serial">@i</div>
-                        <div class="visit"><a href="@item.LinkUrl">@item.Name</a> </div>
-                    </div>
+
                         { i = i + 1; }
                     }
-                </div>
-            </div>
+                </tbody>
+            </table>
+
+            @*<div class="progress-table-wrap">
+                    <div class="progress-table">
+                        <div class="table-head">
+                            <div class="serial">#</div>
+                            <div class="country">Links</div>
+                        </div>
+
+                        @{int i = 1;}
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="table-row">
+                                <div class="serial">@i</div>
+                                <div class="visit"><a href="@item.LinkUrl">@item.Name</a> </div>
+                            </div>
+                            { i = i + 1; }
+                        }
+                    </div>
+                </div>*@
         </div>
     </div>
 </div>
+@section scripts{
+    <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script>
+        $(function () {
+            $(".tblData").DataTable();
+        })
+    </script>
+}

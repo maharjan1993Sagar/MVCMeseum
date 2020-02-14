@@ -41,13 +41,13 @@ namespace Meseum.Controllers
             AboutUs aboutUs = new AboutUs();
             if (id == null)
             {
-                aboutUs = db.AboutUs.Include(m=>m.File).FirstOrDefault();
+                aboutUs = db.AboutUs.Include(m=>m.File).First();
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             aboutUs = db.AboutUs.Include(m => m.File).FirstOrDefault(m => m.Id == id);
             if (aboutUs == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index","Home");
             }
             return View(aboutUs);
         }

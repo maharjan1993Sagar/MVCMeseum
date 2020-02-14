@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -15,7 +16,7 @@ namespace Meseum.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
 
             // Add custom user claims here
-            userIdentity.AddClaim(new Claim("Role", this.Role.ToString()));
+           // userIdentity.AddClaim(new Claim("Role", this.Role.ToString()==null?"Admin":this.Role.ToString()));
             return userIdentity;
         }
         public string Role { get; set; }
