@@ -34,5 +34,7 @@ namespace Meseum.Models
         {
             return new ApplicationDbContext();
         }
+
+      //  public System.Data.Entity.DbSet<Meseum.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

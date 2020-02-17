@@ -10,14 +10,16 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Meseum.Models;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Meseum.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext context;
 
         public AccountController()
         {
@@ -61,6 +63,51 @@ namespace Meseum.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult ChangePermission(string id)
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            if (!String.IsNullOrEmpty(id))
+            {
+                var user = context.Users.Find(id);
+                //  var logins = user.Logins;
+                //var rolesForUser = await _userManager.GetRolesAsync(id);
+
+                if (user != null)
+                {
+                    user.Status = !user.Status;
+                    context.SaveChanges();
+                    return Json("True");
+                }
+                else
+                {
+                    return Json("False");
+                }
+
+                //using (var transaction = context.Database.BeginTransaction())
+                //{
+                //    foreach (var login in logins.ToList())
+                //    {
+                //        await _userManager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+                //    }
+
+                //    if (rolesForUser.Count() > 0)
+                //    {
+                //        foreach (var item in rolesForUser.ToList())
+                //        {
+                //            // item should be the name of the role
+                //            var result = await _userManager.RemoveFromRoleAsync(user.Id, item);
+                //        }
+                //    }
+
+                //    await _userManager.DeleteAsync(user);
+                //    transaction.Commit();
+                //}
+                //return Json("True");
+            }
+
+            return Json("False");
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -148,6 +195,8 @@ namespace Meseum.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            ViewBag.Role = new SelectList(roleManager, "Name", "Name");
             return View();
         }
 
@@ -158,12 +207,16 @@ namespace Meseum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            ViewBag.Role = new SelectList(roleManager, "Name", "Name");
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var result1 = UserManager.AddToRole(user.Id, model.Role);
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -172,7 +225,7 @@ namespace Meseum.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Account");
                 }
                 AddErrors(result);
             }
