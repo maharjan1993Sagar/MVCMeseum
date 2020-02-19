@@ -11,6 +11,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class LinksController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -35,6 +36,7 @@ namespace Meseum.Controllers
             }
             return View(link);
         }
+        [AllowAnonymous]
         public ActionResult DetailsUser()
         {
             return View(db.Links);
@@ -51,7 +53,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,LinkUrl,UploadedDate,UploadedBy")] Link link)
+        public ActionResult Create(Link link)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +85,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,LinkUrl,UploadedDate,UploadedBy")] Link link)
+        public ActionResult Edit(Link link)
         {
             if (ModelState.IsValid)
             {

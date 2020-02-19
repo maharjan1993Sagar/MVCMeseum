@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table" id="tblData">
+<table class="table table-responsive table-bordered" id="tblData">
     <tr>
         @*<th>
                 @Html.DisplayNameFor(model => model.Role)
@@ -46,7 +46,7 @@
             </td>
             <td>
                 <button id="btnSubmit" class="btn btn-default" data-id="@item.Id">Change Permission</button>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <button id="btnDelete" class="btn btn-danger" data-id="@item.Id">Delete</button>
             </td>
         </tr>
     }

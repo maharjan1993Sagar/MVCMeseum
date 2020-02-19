@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class InventoriesController : Controller
     {
         string[] AudioExt = { ".WAV", ".MID", ".MIDI", ".WMA", ".MP3", ".OGG", ".RMA" };
@@ -38,6 +39,8 @@ namespace Meseum.Controllers
             return View(inventories.ToList());
         }
 
+        
+        [AllowAnonymous]
         public ActionResult IndexUser()
         {
             List<Inventory> inventories = db.Inventories.Include(m=>m.Files).Include(i => i.Category).Include(i => i.Location).ToList();
@@ -61,7 +64,7 @@ namespace Meseum.Controllers
             }
             return View(invDetails);
         }
-
+        [AllowAnonymous]
         public ActionResult DetailsUser(int? id)
         {
             Inventory inventory = new Inventory();

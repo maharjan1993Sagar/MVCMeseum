@@ -13,20 +13,20 @@ using System.Web.Mvc;
 using ZXing;
 //#e1cfc5
 namespace Meseum.Controllers
-{
+{ 
     public class HomeController : Controller
     {
         private readonly MeseumContext db = new MeseumContext();
         private readonly IMapper mapper;
         public ActionResult IndexUser()
         {
-
             //    HomeVM home = new HomeVM();
             //    home.Inventories = db.Inventories;
             //    home.NewsEvents = db.NewsEvents;
             //    return View(home);
             return RedirectToAction("IndexUser");
         }
+        [AllowAnonymous]
         public ActionResult Index()
         {
             HomeVM home = new HomeVM();
@@ -37,6 +37,7 @@ namespace Meseum.Controllers
             home.AboutUs = db.AboutUs.Include(m => m.File);
             return View(home);
         }
+        [Authorize]
         public ActionResult IndexAdmin()
         {
             return View();
@@ -52,6 +53,7 @@ namespace Meseum.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public JsonResult Contact(Queries queries)
         {
@@ -81,7 +83,7 @@ namespace Meseum.Controllers
         {
             try
             {
-                qrcode.QRCodeImagePath = GenerateQRCode(qrcode.QRCodeText);
+                qrcode.QRCodeImagePath = GenerateQRCode(qrcode);
                 ViewBag.Message = "QR Code Created successfully";
             }
             catch (Exception ex)
@@ -91,21 +93,49 @@ namespace Meseum.Controllers
             return View("QrCode", qrcode);
         }
 
-        private string GenerateQRCode(string qrcodeText)
+        public ActionResult QRCodeGen(string id, string type)
         {
-            string folderPath = "~/Admin/Images/QRCode";
-            string imagePath = "~/Admin/Images/QRCode/QrCode.jpg";
-            // If the directory doesn't exist then create it.
-            if (!Directory.Exists(Server.MapPath(folderPath)))
+            if (string.IsNullOrEmpty(id))
             {
-                Directory.CreateDirectory(Server.MapPath(folderPath));
+                QRCodeModel qrcode = new QRCodeModel();
+                qrcode.FolderPath = "~/Admin/Images/QRCode";
+                if (type == "Inventory")
+                {
+                    qrcode.QRCodeText = "ninc.gov.np/meseum/api/meseumapi/getinventory/" + id;
+                    qrcode.FilePath = "~/Admin/Images/QRCode/Inventory" + id + ".jpg";
+                }
+                qrcode.QRCodeImagePath = GenerateQRCode(qrcode);
+                return View("QrCode", qrcode);
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+        }
+
+        private string GenerateQRCode(QRCodeModel qr)
+        {
+            //string folderPath = "~/Admin/Images/QRCode";
+            //string imagePath = "~/Admin/Images/QRCode/QrCode.jpg";
+            // If the directory doesn't exist then create it.
+            if (!Directory.Exists(Server.MapPath("~/Admin")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/Admin"));
+            }
+            if (!Directory.Exists(Server.MapPath("~/Admin/Images")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/Admin/Images"));
+            }
+            if (!Directory.Exists(Server.MapPath(qr.FolderPath)))
+            {
+                Directory.CreateDirectory(Server.MapPath(qr.FolderPath));
             }
 
             var barcodeWriter = new BarcodeWriter();
             barcodeWriter.Format = BarcodeFormat.QR_CODE;
-            var result = barcodeWriter.Write(qrcodeText);
+            var result = barcodeWriter.Write(qr.QRCodeText);
 
-            string barcodePath = Server.MapPath(imagePath);
+            string barcodePath = Server.MapPath(qr.FilePath);
             var barcodeBitmap = new Bitmap(result);
             using (MemoryStream memory = new MemoryStream())
             {
@@ -116,7 +146,7 @@ namespace Meseum.Controllers
                     fs.Write(bytes, 0, bytes.Length);
                 }
             }
-            return imagePath;
+            return qr.FilePath;
         }
 
         public ActionResult Read()
@@ -140,13 +170,13 @@ namespace Meseum.Controllers
             return new QRCodeModel() { QRCodeText = barcodeText, QRCodeImagePath = imagePath };
         }
 
-
+        [Authorize]
         public ActionResult GetFiles(int? id, string type)
         {
-            IEnumerable<ImageFile> files=null;
+            IEnumerable<ImageFile> files = null;
             if (id != null)
             {
-                ViewBag.Type =type;
+                ViewBag.Type = type;
                 if (type.ToUpper().Contains("NEWS"))
                 {
                     files = db.NewsEvents.Include(m => m.Files).FirstOrDefault(m => m.Id == id.Value).Files;
@@ -161,7 +191,7 @@ namespace Meseum.Controllers
                 }
                 else if (type.ToUpper().Contains("INVENTORY"))
                 {
-                   
+
                     IEnumerable<Files> filess = db.Inventories.Include(m => m.Files).FirstOrDefault(m => m.Id == id.Value).Files;
                     files = (from f in filess
                              select new ImageFile
@@ -174,13 +204,14 @@ namespace Meseum.Controllers
                                  Type = f.Type,
                                  Size = f.Size
                              }).AsEnumerable();
-                           // mapper.Map<IEnumerable<Files>, IEnumerable<ImageFile>>(filess);
+                    // mapper.Map<IEnumerable<Files>, IEnumerable<ImageFile>>(filess);
                 }
             }
             return View(files);
         }
+        [Authorize]
         [HttpPost]
-        public JsonResult DeleteFile(int? id,string type)
+        public JsonResult DeleteFile(int? id, string type)
         {
             if (id != null)
             {
@@ -190,7 +221,7 @@ namespace Meseum.Controllers
                     if (System.IO.File.Exists(Server.MapPath(fil.path)))
                     {
                         System.IO.File.Delete(Server.MapPath(fil.path));
-                      
+
                     }
                     db.Files.Remove(fil);
                     db.SaveChanges();
@@ -203,7 +234,7 @@ namespace Meseum.Controllers
                     if (System.IO.File.Exists(Server.MapPath(fil.path)))
                     {
                         System.IO.File.Delete(Server.MapPath(fil.path));
-                       
+
                     }
                     db.ImageFile.Remove(fil);
                     db.SaveChanges();

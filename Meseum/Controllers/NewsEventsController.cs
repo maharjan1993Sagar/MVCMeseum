@@ -14,6 +14,7 @@ using Meseum.ViewModel;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class NewsEventsController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -41,7 +42,7 @@ namespace Meseum.Controllers
             }
             return View(newsEvent);
         }
-
+        [AllowAnonymous]
         public ActionResult DetailsUser(int? id)
         {
             NewsDetails news = new NewsDetails();

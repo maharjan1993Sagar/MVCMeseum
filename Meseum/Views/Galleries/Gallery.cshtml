@@ -2,9 +2,9 @@
 
 @{
     ViewBag.Title = "Details";
-   
-        Layout = "~/Views/Shared/_LayoutArt.cshtml";
-   
+
+    Layout = "~/Views/Shared/_LayoutArt.cshtml";
+
 }
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
@@ -33,10 +33,13 @@
             </div>
         </div>
         <div id="grid-container" class="row">
-            @foreach (var item in Model.Files.ToList())
+            @if (Model.Files.Count() > 0)
             {
-                <a class="single-gallery" href="@Url.Content(item.path)"><img class="grid-item" src="@Url.Content(item.path)"></a>
+                foreach (var item in Model.Files.ToList())
+                {
+                    <a class="single-gallery" href="@Url.Content(item.path)"><img class="grid-item" src="@Url.Content(item.path)"></a>
 
+                }
             }
 
         </div>

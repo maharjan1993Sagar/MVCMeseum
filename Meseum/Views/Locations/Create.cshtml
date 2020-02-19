@@ -9,41 +9,49 @@
     </div>
     <div class="card-body">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create", "Locations", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
-            <div class="row">
+        <div class="row">
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="col-md-4">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Name)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
 
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ShortDetail)
-
-                        @Html.EditorFor(model => model.ShortDetail, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ShortDetail, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.LongDetail)
-
-                        @Html.EditorFor(model => model.LongDetail, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.LongDetail, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <input type="submit" value="Create" class="btn btn-success" />
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Thumbnail Image</label>
+
+                    <input type="file" id="file" name="File" />
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortDetail)
+
+                    @Html.EditorFor(model => model.ShortDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ShortDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LongDetail)
+
+                    @Html.EditorFor(model => model.LongDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LongDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
 
         }
     </div>

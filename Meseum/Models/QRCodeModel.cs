@@ -12,5 +12,7 @@ namespace Meseum.Models
         public string QRCodeText { get; set; }
         [Display(Name = "QRCode Image")]
         public string QRCodeImagePath { get; set; }
+        public string FilePath { get; set; }
+        public string FolderPath { get; set; }
     }
 }

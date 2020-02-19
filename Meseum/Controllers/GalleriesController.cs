@@ -13,6 +13,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class GalleriesController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -22,7 +23,7 @@ namespace Meseum.Controllers
         {
             return View(db.Gallery.ToList());
         }
-
+        [AllowAnonymous]
         public ActionResult DetailsUser()
         {
             return View(db.Gallery.Include(m=>m.Files));

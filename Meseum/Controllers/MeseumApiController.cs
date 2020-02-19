@@ -14,16 +14,28 @@ using Meseum.ViewModel;
 
 namespace Meseum.Controllers
 {
-   
     public class MeseumApiController : ApiController
     {
         private MeseumContext db = new MeseumContext();
 
         // GET: api/MeseumApi
         [HttpGet]
-        public IQueryable<Location> GetLocations()
+        public List<LocationDto> GetLocations()
         {
-            return db.Locations.Include(m => m.Categories);
+            List<LocationDto> loc = (from l in db.Locations.Include(m => m.Categories)
+                                     select new LocationDto
+                                     {
+                                         Id = l.Id,
+                                         Categories = l.Categories,
+                                         LongDetail = l.LongDetail,
+                                         Name = l.Name,
+                                         ShortDetail = l.ShortDetail,
+                                         Thumbnail = "ninc.gov.np/meseum/Admin/Location/" + l.Id.ToString() + ".jpg",
+                                         UpdatedAt = l.UpdatedAt,
+                                         UpdatedBy = l.UpdatedBy
+                                     }).ToList();
+                                     
+            return loc;
         }
         [HttpGet]
         public IQueryable<Category> GetCategories()
@@ -67,17 +79,67 @@ namespace Meseum.Controllers
                                                 }).AsEnumerable();
             return InvDto;//.Include(a=>a.Category).Include(m=>m.Location).Include(m=>m.Files);
         }
+        [HttpGet]
+        public IEnumerable<InventoryDto> InventoryByLocation(int id)
+        {
+            IEnumerable<Inventory> Inventories = db.Inventories.Include(a => a.Category).Include(m => m.Location).Include(m => m.Files);
+
+            IEnumerable<InventoryDto> InvDto = (from i in Inventories
+                                                where i.LocationId==id
+                                                select new InventoryDto
+                                                {
+                                                    Id = i.Id,
+                                                    Name = i.Name,
+                                                    CategoryName = i.Category.Name,
+                                                    LocationName = i.Location.Name,
+                                                    Date = i.Date,
+                                                    DetailStatus = i.DetailStatus,
+                                                    Latit = i.Latit,
+                                                    Long = i.Long,
+                                                    LongDetail = i.LongDetail,
+                                                    MadeBy = i.MadeBy,
+                                                    Material = i.Material,
+                                                    ObjectCode = i.ObjectCode,
+                                                    OriginOf = i.OriginOf,
+                                                    ShortDetail = i.ShortDetail,
+                                                    size = i.size,
+                                                    UpdatedAt = i.UpdatedAt,
+                                                    UpdatedBy = i.UpdatedBy,
+                                                    Thumbnail="ninc.gov.np/meseum/Admin/Images/Inventories/Thumb/"+i.Id.ToString()+".jpg",
+                                                    Files = (from f in i.Files
+                                                             select new Files
+                                                             {
+                                                                 Name = f.Name,
+                                                                 path = f.path.Replace("~", "ninc.gov.np/meseum"),
+                                                                 Id = f.Id,
+                                                                 Size = f.Size,
+                                                                 Type = f.Type
+                                                             }).AsEnumerable()
+                                                }).AsEnumerable();
+            return InvDto;//.Include(a=>a.Category).Include(m=>m.Location).Include(m=>m.Files);
+        }
         // GET: api/MeseumApi/5
-        [ResponseType(typeof(Location))]
+        [ResponseType(typeof(LocationDto))]
         public IHttpActionResult GetLocation(int id)
         {
-            Location location = db.Locations.Include(mbox => mbox.Categories).FirstOrDefault(m => m.Id == id);
-            if (location == null)
+            Location l = db.Locations.Include(mbox => mbox.Categories).FirstOrDefault(m => m.Id == id);
+            LocationDto locationDto = new LocationDto
+            {
+                Id = l.Id,
+                Categories = l.Categories,
+                LongDetail = l.LongDetail,
+                Name = l.Name,
+                ShortDetail = l.ShortDetail,
+                Thumbnail = "ninc.gov.np/meseum/Admin/Location/" + l.Id.ToString() + ".jpg",
+                UpdatedAt = l.UpdatedAt,
+                UpdatedBy = l.UpdatedBy
+            };
+            if (locationDto == null)
             {
                 return NotFound();
             }
 
-            return Ok(location);
+            return Ok(locationDto);
         }
         [ResponseType(typeof(Category))]
         public IHttpActionResult GetCategory(int id)
@@ -114,6 +176,7 @@ namespace Meseum.Controllers
                 size = i.size,
                 UpdatedAt = i.UpdatedAt,
                 UpdatedBy = i.UpdatedBy,
+                Thumbnail = "ninc.gov.np/meseum/Admin/Images/Inventories/Thumb/" + i.Id.ToString() + ".jpg",
                 Files = (from f in i.Files
                          select new Files
                          {

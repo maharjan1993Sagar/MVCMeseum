@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-8 post-list blog-post-list">
                     <div class="single-post">
-                        @if (Model.News.Files != null)
+                        @if (Model.News.Files.ToList().Count()>0)
                         {
 
                             foreach (var item in Model.News.Files)
@@ -55,7 +55,7 @@
                             {
                                 <div class="single-recent-post d-flex flex-row">
                                     <div class="recent-thumb">
-                                        @if (item.Files != null)
+                                        @if (item.Files.ToList().Count()>0)
                                         {
                                         <img style="height:77px;width:77px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
                                         }

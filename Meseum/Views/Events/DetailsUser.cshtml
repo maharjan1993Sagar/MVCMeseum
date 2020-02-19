@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-lg-8 post-list blog-post-list">
                 <div class="single-post">
-                    @if (Model.Event.Files !=null)
+                    @if (Model.Event.Files.ToList().Count()>0)
                     {
                         foreach (var item in Model.Event.Files)
                         {
@@ -53,7 +53,11 @@
                         {
                             <div class="single-recent-post d-flex flex-row">
                                 <div class="recent-thumb">
+                                    @if(item.Files.ToList().Count>0)
+                                    {
                                     <img  style="height:76.92px;width:76.92px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                                    }
+
                                 </div>
                                 <div class="recent-details">
                                     <a href="@Url.Action("DetailsUser","Events")?id=@item.Id" >

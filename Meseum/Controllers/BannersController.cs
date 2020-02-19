@@ -12,6 +12,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class BannersController : Controller
     {
         private MeseumContext db = new MeseumContext();

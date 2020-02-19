@@ -12,6 +12,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class AboutUsController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -36,6 +37,7 @@ namespace Meseum.Controllers
             }
             return View(aboutUs);
         }
+        [AllowAnonymous]
         public ActionResult DetailsUser(int? id)
         {
             AboutUs aboutUs = new AboutUs();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,7 +11,7 @@ using Meseum.Context;
 using Meseum.Models;
 
 namespace Meseum.Controllers
-{
+{[Authorize]
     public class LocationsController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -48,7 +49,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Location location)
+        public ActionResult Create( Location location,HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +57,14 @@ namespace Meseum.Controllers
                 location.UpdatedBy = User.Identity.Name;
                 db.Locations.Add(location);
                 db.SaveChanges();
+
+                Location loc = db.Locations.OrderByDescending(m => m.Id).First();
+                if (!Directory.Exists(Server.MapPath("~/Admin/Images/Location/")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Location/"));
+                }
+                file.SaveAs(Server.MapPath("~/Admin/Images/Location/" + loc.Id.ToString() + ".jpg"));
+
                 return RedirectToAction("Index");
             }
 
@@ -82,7 +91,7 @@ namespace Meseum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Location location)
+        public ActionResult Edit(Location location,HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +99,14 @@ namespace Meseum.Controllers
                 location.UpdatedBy = User.Identity.Name;
                 db.Entry(location).State = EntityState.Modified;
                 db.SaveChanges();
+
+             
+                if (!Directory.Exists(Server.MapPath("~/Admin/Images/Location/")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Admin/Images/Location/"));
+                }
+                file.SaveAs(Server.MapPath("~/Admin/Images/Location/" + location.Id.ToString() + ".jpg"));
+
                 return RedirectToAction("Index");
             }
             return View(location);

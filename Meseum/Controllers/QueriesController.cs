@@ -11,6 +11,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class QueriesController : Controller
     {
         private MeseumContext db = new MeseumContext();

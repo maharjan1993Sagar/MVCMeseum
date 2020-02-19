@@ -322,6 +322,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\InventoryDto.cs" />
+    <Compile Include="ViewModel\LocationDto.cs" />
     <Compile Include="ViewModel\NewsDetails.cs" />
     <Compile Include="ViewModel\EventDetails.cs" />
     <Compile Include="ViewModel\BannerImage.cs" />
@@ -2959,6 +2960,8 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\QRcode.cshtml" />
     <Content Include="Views\Home\Read.cshtml" />
+    <Content Include="Views\Account\changePassword.cshtml" />
+    <Content Include="Views\Account\RegisterAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

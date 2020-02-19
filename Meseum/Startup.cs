@@ -12,6 +12,7 @@ namespace Meseum
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            createRolesandUsers();
         }
         // In this method we will create default User roles and Admin user for login
         private void createRolesandUsers()
@@ -23,51 +24,60 @@ namespace Meseum
 
 
             // In Startup iam creating first Admin Role and creating a default Admin User     
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("SPAdmin"))
             {
 
                 // first we create Admin rool    
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "SPAdmin";
+                roleManager.Create(role);
+
+
+                //Here we create a Admin super user who will maintain the website                   
+
+
+            }
+            if (UserManager.FindByEmail("dbugtest2016@gmail.com") == null)
+            {
+                var user = new ApplicationUser();
+
+                user.UserName = "dibug";
+                user.Email = "dbugtest2016@gmail.com";
+                string userPWD = "Password1@";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Admin    
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "SPAdmin");
+
+                }
+            }
+            else
+            {
+                ApplicationUser user = UserManager.FindByEmail("dbugtest2016@gmail.com");
+                var result1 = UserManager.AddToRole(user.Id, "SPAdmin");
+
+            }
+
+            //  creating Creating Manager role
+            if (!roleManager.RoleExists("Admin"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
 
-                role.Name = "CMSAdmin";
-                roleManager.Create(role);
-                //Here we create a Admin super user who will maintain the website                   
-
-                //var user = new ApplicationUser();
-                //user.UserName = "shanu";
-                //user.Email = "syedshanumcain@gmail.com";
-
-                //string userPWD = "A@Z200711";
-
-                //var chkUser = UserManager.Create(user, userPWD);
-
-                ////Add default User to Role Admin    
-                //if (chkUser.Succeeded)
-                //{
-                //    var result1 = UserManager.AddToRole(user.Id, "Admin");
-
-                //}
             }
 
-            // creating Creating Manager role     
-            //if (!roleManager.RoleExists("Manager"))
-            //{
-            //    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-            //    role.Name = "Manager";
-            //    roleManager.Create(role);
+            // creating Creating Employee role
+            if (!roleManager.RoleExists("CMSAdmin"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "CMSAdmin";
+                roleManager.Create(role);
 
-            //}
-
-            // creating Creating Employee role     
-            //if (!roleManager.RoleExists("Employee"))
-            //{
-            //    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-            //    role.Name = "Employee";
-            //    roleManager.Create(role);
-
-            //}
+            }
         }
     }
 }

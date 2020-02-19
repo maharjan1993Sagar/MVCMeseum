@@ -12,6 +12,7 @@ using Meseum.Models;
 
 namespace Meseum.Controllers
 {
+    [Authorize]
     public class ArticlesController : Controller
     {
         private MeseumContext db = new MeseumContext();
@@ -36,6 +37,7 @@ namespace Meseum.Controllers
             }
             return View(article);
         }
+        [AllowAnonymous]
         public ActionResult DetailsUser()
         {
             return View(db.Articles.Include(m => m.File));

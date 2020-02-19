@@ -11,25 +11,26 @@ using Microsoft.Owin.Security;
 using Meseum.Models;
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net.Mail;
+using System.Net;
 
 namespace Meseum.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationDbContext context;
+        private ApplicationDbContext context = new ApplicationDbContext();
 
         public AccountController()
         {
         }
-
+        [Authorize(Roles = "SPAdmin")]
         public ActionResult Index()
         {
             var context = new ApplicationDbContext();
             var allUsers = context.Users.ToList();
-
             return View(allUsers);
         }
 
@@ -62,7 +63,66 @@ namespace Meseum.Controllers
                 _userManager = value;
             }
         }
+        public ActionResult changePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult changePassword(ChangePasswordViewModel usermodel)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+                if (user == null)
+                {
+                    return View("Login");
+                }
+                if (UserManager.PasswordHasher.VerifyHashedPassword(user.PasswordHash, usermodel.OldPassword)
+                   != PasswordVerificationResult.Failed)
+                {
+                    user.PasswordHash = UserManager.PasswordHasher.HashPassword(usermodel.NewPassword);
+                    var result = UserManager.Update(user);
+                    if (!result.Succeeded)
+                    {
+                        ViewBag.ErrorMessage = "Failed to change the password.";
+                        return View();
+                    }
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Password not matched with Old Password.";
+                    return View();
+                }
+                ViewBag.SuccessMessage = "Successfully Updated Password";
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                TempData["Message"] = "Password Changed Successfully.";
+                return RedirectToAction("Login", new { returnURL = "Home/Dashboard" });
+            }
+            return View();
+        }
+        [HttpPost]
+        public JsonResult Delete(string id)
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            if (!String.IsNullOrEmpty(id))
+            {
+                var user = context.Users.Find(id);
+                
+                if (user != null)
+                {
+                    UserManager.Delete(user);
+                    context.SaveChanges();
+                    return Json("True");
+                }
+                else
+                {
+                    return Json("False");
+                }
 
+            }
+            return Json("False");
+
+        }
         [HttpPost]
         public JsonResult ChangePermission(string id)
         {
@@ -195,8 +255,8 @@ namespace Meseum.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            ViewBag.Role = new SelectList(roleManager, "Name", "Name");
+            //var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            // ViewBag.Role = new SelectList(roleManager, "Name", "Name");
             return View();
         }
 
@@ -207,11 +267,53 @@ namespace Meseum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            // var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //   ViewBag.Role = new SelectList(roleManager, "Name", "Name");
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, EmailConfirmed = true };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Index", "Account");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        [Authorize(Roles = "SPAdmin")]
+        public ActionResult RegisterAdmin()
+        {
+            var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            ViewBag.Role = new SelectList(roleManager, "Name", "Name");
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+        [Authorize(Roles = "SPAdmin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterAdmin(RegisterViewModel model)
+        {
             var roleManager = context.Roles;// new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             ViewBag.Role = new SelectList(roleManager, "Name", "Name");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, EmailConfirmed = true };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -283,10 +385,48 @@ namespace Meseum.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var senderEmail = new MailAddress("dbugtest2016@gmail.com", "Patan Museum");
+                        var receiverEmail = new MailAddress(user.Email);
+
+                        var sub = "Password Reset Link";
+                        var body = "<p>Please Reset your password with the link here.<a href='" + callbackUrl + "' >Link</a></p>";
+                        var smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new NetworkCredential(senderEmail.Address, "my@work#123$")
+                        };
+                        using (var mess = new MailMessage(senderEmail, receiverEmail)
+                        {
+                            Subject = sub,
+                            Body = body,
+                            IsBodyHtml = true
+                        })
+                        {
+                            smtp.Send(mess);
+                        }
+                        return RedirectToAction("ForgotPasswordConfirmation", "Account");
+
+                    }
+                }
+                catch (Exception)
+                {
+                    ViewBag.Error = "Some Error";
+                }
+
+                //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by this link. <a href=\"" + callbackUrl + "\">here</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -331,6 +471,8 @@ namespace Meseum.Controllers
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
             AddErrors(result);
             return View();
         }
@@ -464,7 +606,7 @@ namespace Meseum.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
         }
 
         //

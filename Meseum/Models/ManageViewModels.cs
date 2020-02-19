@@ -41,6 +41,7 @@ namespace Meseum.Models
 
     public class ChangePasswordViewModel
     {
+        
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]
