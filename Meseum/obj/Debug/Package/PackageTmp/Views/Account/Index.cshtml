@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Meseum.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-responsive table-bordered" id="tblData">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>*@
+            <td id="Status">
+                @(item.Status ? "Access" : "Deny")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <button id="btnSubmit" class="btn btn-default" data-id="@item.Id">Change Permission</button>
+                <button id="btnDelete" class="btn btn-danger" data-id="@item.Id">Delete</button>
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+        $(function () {
+
+            $("body table#tblData tr td #btnSubmit").click(function () {
+                var id = $(this).attr("data-id");
+                var $tr = $(this).parent().parent();
+                //var $checkbox = $tr.find("input[type=checkbox]");
+                var $td = $tr.find("td#Status");
+                //if ($td.html() == "Access") {
+                //    $td.html("Deny");
+                //}
+                //else {
+                //    $td.html("Access");
+                //}
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    dataType: "json",
+                    data: "{'id':'" + id + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    url: RootUrl + 'Account/ChangePermission',
+                    success: function (response) {
+                        if (response == "True") {
+                            alert("Status changed successfully");
+                            if ($td.html() == "Access") {
+                                $td.html("Deny");
+                            }
+                            else {
+                                $td.html("Access");
+
+                            }
+                            // $checkbox.prop("checked", !checkBoxes.prop("checked"));
+                        }
+
+                    }
+                })
+            })
+
+        })
+
+    </script>
+}

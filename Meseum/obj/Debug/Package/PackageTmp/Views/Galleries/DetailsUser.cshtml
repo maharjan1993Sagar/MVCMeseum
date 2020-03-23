@@ -33,7 +33,10 @@
             {
                 <div class="col-lg-4 col-md-6 single-exhibition">
                     <div class="thumb">
+                        @if (item.Files.ToList().Count() > 0)
+                        {
                         <img class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                        }
                     </div>
                     <p class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</p>
                     <a href="@Url.Action("gallery","Galleries")?id= @item.Id"><h4>@item.Name</h4></a>

@@ -11,6 +11,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         div.single-blog div.description {
             width: 255px;
             height: 44px;
@@ -18,6 +19,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         p.description {
             width: 360px;
             height: 44px;
@@ -25,7 +27,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
     </style>
 }
 
@@ -103,7 +104,7 @@
                 <p class="pt-20 pb-20 text-white">
                     NEPAL'S FIRST SELF SUSTAINABLE MUSEUM. LOCATED AT HEART OF CITY
                 </p>
-                <a href="#" class="primary-btn text-uppercase">Learn More</a>
+                @*<a href="" class="primary-btn text-uppercase">Learn More</a>*@
             </div>
         </div>
     </div>
@@ -127,7 +128,7 @@
                             <p>
                                 Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            @*<a href="#" class="text-uppercase primary-btn">Buy ticket</a>*@
                         </div>
                     </div>
                 </div>
@@ -146,7 +147,7 @@
                             <p>
                                 Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            @* <a href="#" class="text-uppercase primary-btn">Buy ticket</a>*@
                         </div>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                             <p>
                                 Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            @*<a href="#" class="text-uppercase primary-btn">Buy ticket</a>*@
                         </div>
                     </div>
                 </div>
@@ -207,20 +208,27 @@
         </div>
         <div class="row">
             <div class="active-exibition-carusel">
-
-                @foreach (var item in Model.Galleries.ToList())
+                @if (Model.Galleries.ToList().Count() > 0)
                 {
-                    <div class="single-exibition item">
-                        <img src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
-
-                        <a href='@Url.Action("detailsUser", "Galleries")?id=' @item.Id><h4>@item.Name</h4></a>
-                        <p class="description">
-                            @item.ShortDetails
-                        </p>
-                        <h6 class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</h6>
-                    </div>
+                    foreach (var item in Model.Galleries.ToList())
+                    {
+                        <div class="single-exibition item">
+                            @if (item.Files.Count() > 0)
+                            {
+                                <img onerror="this.style.display='none'" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                            }
+                            <a href='@Url.Action("detailsUser", "Galleries")?id=@item.Id'><h4>@item.Name</h4></a>
+                            <p class="description">
+                                @item.ShortDetails
+                            </p>
+                            <h6 class="date">@item.UploadedDate.ToString("dd MMMM, yyyy")</h6>
+                        </div>
+                    }
                 }
-
+                else
+                {
+                    <div>No Galleries found.</div>
+                }
 
             </div>
         </div>
@@ -239,42 +247,58 @@
             </div>
         </div>
         <div class="row">
-            @{int count = Model.Events.ToList().Count() > 4 ? 4 : Model.Events.Count();
-                int countNews = Model.NewsEvents.ToList().Count > 4 ? 4 : Model.NewsEvents.Count(); }
-            <div class='col-lg-6 event-left'>
-                @foreach (var item in Model.Events.ToList().Take(count < 2 ? count : 2))
-                {
-                    <div class="single-events">
-                        <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
-                        <a href='@Url.Action("DetailsUser", "Events")?id=@item.Id' ><h4>@item.Title</h4></a>
-                        <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
-                        <div class="description">
-                            @Html.Raw(item.Description)
-                        </div>
-                                @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
-                        
-                        <a href="@Url.Action("DetailsUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
-                    </div>
-                }
-            </div>
-            <div class='col-lg-6 event-right'>
-                @if (count > 2)
-                {
-                    foreach (var item in Model.Events.ToList().GetRange(count / 2, (count - count / 2)))
+            @{
+                int count = Model.Events.ToList().Count() > 4 ? 4 : Model.Events.Count();
+            }
+            @if (Model.Events.ToList().Count() > 0)
+            {
+
+                <div class='col-lg-6 event-left'>
+                    @foreach (var item in Model.Events.ToList().Take(count < 2 ? count : 2))
                     {
                         <div class="single-events">
-                            <a href='@Url.Action("DetailsUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                            @if (item.Files.Count() > 0)
+                            {
+                                <img onerror="this.style.display='none'" style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                            }
+                            <a href='@Url.Action("DetailsUser", "Events")?id=@item.Id'><h4>@item.Title</h4></a>
                             <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
                             <div class="description">
                                 @Html.Raw(item.Description)
-                                    @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
                             </div>
-                            <a href="#" class="primary-btn text-uppercase">View Details</a>
-                            <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                            @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
+
+                            <a href="@Url.Action("DetailsUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
                         </div>
                     }
-                }
-            </div>
+                </div>
+                <div class='col-lg-6 event-right'>
+
+                    @if (count > 2)
+                    {
+                        foreach (var item in Model.Events.ToList().GetRange(count / 2, (count - count / 2)))
+                        {
+                            <div class="single-events">
+                                <a href='@Url.Action("DetailsUser", "Events")?id=' @item.Id><h4>@item.Title</h4></a>
+                                <h6><span>@item.EventDate.ToString("dd MMMM,yyyy")</span> at @item.Location</h6>
+                                <div class="description">
+                                    @Html.Raw(item.Description)
+                                    @*.ToString().Substring(0, item.Description.Length <= 100 ? item.Description.Length : 100)*@
+                                </div>
+                                <a href="@Url.Action("DetailsUser", "Events")?id=@item.Id" class="primary-btn text-uppercase">View Details</a>
+                                @if (item.Files.Count() > 0)
+                                {
+                                    <img style="width:540px;height:175px;" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="">
+                                }
+                            </div>
+                        }
+                    }
+                </div>
+            }
+            else
+            {
+                <div>No Events found.</div>
+            }
         </div>
     </div>
 </section>
@@ -290,26 +314,39 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
+            @{
+                int countNews = Model.NewsEvents.ToList().Count > 4 ? 4 : Model.NewsEvents.Count();
+            }
             @if (countNews > 0)
             {
+
                 foreach (var item in Model.NewsEvents.ToList().Take(countNews))
                 {
                     <div class="col-lg-3 col-md-6 single-blog">
                         <div class="thumb">
                             @if (item.Files == null)
                             {
-                               
-                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)"alt="" style="height:174px;width:255px;">
+
+                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="" alt="" style="height:174px;width:255px;">
                             }
                             else
                             {
-                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="" style="height:174px;width:255px;">
+                                if (item.Files.Count() == 0)
+                                {
+                                    <img onerror="this.onerror=null;this.style.display src='/Admin/notfound.jpg'" class="img-fluid" alt="" style="height:174px;width:255px;">
+                                }
+                                else
+                                {
+                                    <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault().path)" alt="" style="height:174px;width:255px;">
+
+                                }
                             }
 
                         </div>
                         <p class="date">@item.UploadDate.ToString("dd MMM yyyy")</p>
-                        <a href="@Url.Action("DetailsUser","NewsEvents")?id=@item.Id">
+                        <a href="@Url.Action("DetailsUser", "NewsEvents")?id=@item.Id">
                             <h4>
                                 @item.Title.ToString().Substring(0, item.Title.Length <= 50 ? item.Title.Length : 50)
                             </h4>
@@ -317,10 +354,14 @@
                         <div class="description">
                             @Html.Raw(item.Description)
                         </div>
-                                @*.ToString().Substring(0, item.Description.Length <= 50 ? item.Description.Length : 50)*@
-                      
+                        @*.ToString().Substring(0, item.Description.Length <= 50 ? item.Description.Length : 50)*@
+
                     </div>
                 }
+            }
+            else
+            {
+                <div>No News and Notice found.</div>
             }
         </div>
     </div>

@@ -29,6 +29,7 @@ namespace Meseum.ViewModel
         public bool DetailStatus { get; set; }
         public decimal Long { get; set; }
         public decimal Latit { get; set; }
+        public decimal Altitude { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string UpdatedBy { get; set; } = "Admin";
         public string[] Images { get; set; }

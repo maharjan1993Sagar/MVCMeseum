@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BasicAuthentication\BasicAuthenticationAttribute.cs" />
     <Compile Include="Ckeditor\ImageBrowser.aspx.cs">
       <DependentUpon>ImageBrowser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,15 +236,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Migrations\201912290406276_InitialCreate.cs" />
-    <Compile Include="Helpers\Migrations\201912290406276_InitialCreate.Designer.cs">
-      <DependentUpon>201912290406276_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.cs" />
-    <Compile Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.Designer.cs">
-      <DependentUpon>202002110417242_somecustompropertiestoidentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\Migrations\Configuration.cs" />
     <Compile Include="Migrations\201912271230577_SomeClassAdded.cs" />
     <Compile Include="Migrations\201912271230577_SomeClassAdded.Designer.cs">
       <DependentUpon>201912271230577_SomeClassAdded.cs</DependentUpon>
@@ -300,6 +292,10 @@
     <Compile Include="Migrations\202002061136045_locCat.Designer.cs">
       <DependentUpon>202002061136045_locCat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003221636131_addAltitude.cs" />
+    <Compile Include="Migrations\202003221636131_addAltitude.Designer.cs">
+      <DependentUpon>202003221636131_addAltitude.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -323,6 +319,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\InventoryDto.cs" />
     <Compile Include="ViewModel\LocationDto.cs" />
+    <Compile Include="ViewModel\LongLatitEditVM.cs" />
     <Compile Include="ViewModel\NewsDetails.cs" />
     <Compile Include="ViewModel\EventDetails.cs" />
     <Compile Include="ViewModel\BannerImage.cs" />
@@ -2980,12 +2977,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Helpers\Migrations\201912290406276_InitialCreate.resx">
-      <DependentUpon>201912290406276_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Helpers\Migrations\202002110417242_somecustompropertiestoidentity.resx">
-      <DependentUpon>202002110417242_somecustompropertiestoidentity.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912271230577_SomeClassAdded.resx">
       <DependentUpon>201912271230577_SomeClassAdded.cs</DependentUpon>
     </EmbeddedResource>
@@ -3027,6 +3018,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002061136045_locCat.resx">
       <DependentUpon>202002061136045_locCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003221636131_addAltitude.resx">
+      <DependentUpon>202003221636131_addAltitude.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

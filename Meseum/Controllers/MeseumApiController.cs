@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Meseum.BasicAuthentication;
 using Meseum.Context;
 using Meseum.Models;
 using Meseum.ViewModel;
@@ -19,6 +20,7 @@ namespace Meseum.Controllers
         private MeseumContext db = new MeseumContext();
 
         // GET: api/MeseumApi
+        //[Authorize]
         [HttpGet]
         public List<LocationDto> GetLocations()
         {
@@ -213,7 +215,24 @@ namespace Meseum.Controllers
           
             return Ok(files);
         }
-
+        //[BasicAuthentication]
+        [HttpPost]
+        public IHttpActionResult EditLongLati(LongLatitEditVM longi)
+        {
+            if(longi.Username=="spadmin" &&longi.Password=="password1@")
+                       {
+                Inventory Inv = db.Inventories.Find(longi.InventoryId);
+                Inv.Long = longi.Long;
+                Inv.Latit = longi.Latit;
+                Inv.Altitude = longi.Altitude;
+                db.SaveChanges();
+                return Ok("Latitude, longitude and altitude updated successfully.");
+            }
+            else
+            {
+                return BadRequest("Error! Failed to update the latitude longitude and altitude of inventory.");
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

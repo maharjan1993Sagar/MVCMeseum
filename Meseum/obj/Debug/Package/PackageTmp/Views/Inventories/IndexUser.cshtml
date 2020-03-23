@@ -30,42 +30,56 @@
             </div>
         </div>
         <div class="row">
-            @if (Model!=null)
-            {
-                foreach (var item in Model)
+        
+                @if (Model != null)
                 {
-                    <div class="col-lg-3 col-md-6  single-blog">
-                        <div class="thumb">
-                            @if (item.Files.Any())
-                            {
+                   
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-6 single-blog">
+                            <div class="thumb">
+                                @if (item.Files.Any())
+                                {
 
-                                <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault(m => m.Type == "Image").path)" alt="" style="height:174px;width:255px;">
-                                } 
-                            else
-                            {
-                                <img  class="img-fluid" src="~/Admin/notfound.jpg" alt="" style="height:174px;width:255px;">
+                                    <img onerror="this.onerror=null;this.src='/Admin/notfound.jpg'" class="img-fluid" src="@Url.Content(item.Files.FirstOrDefault(m => m.Type == "Image").path)" alt="" style="height:174px;width:255px;">
+                                }
+                                else
+                                {
+                                    <img class="img-fluid" src="~/Admin/notfound.jpg" alt="" style="height:174px;width:255px;">
 
-                            }
-                          
+                                }
+
+
+
+                            </div>
+                            @*  <p class="date">@item.UpdatedAt.ToString("dd MMM yyyy")</p>*@
+                            <a href="@Url.Action("DetailsUser","Inventories")?id=@item.Id">
+                                <h4>
+                                    @item.Name.ToString().Substring(0, item.Name.Length <= 50 ? item.Name.Length : 50)
+                                </h4>
+                            </a>
+                            <p>
+                                Category:&nbsp;&nbsp;   @item.Category.Name<br />
+                                Location:&nbsp;&nbsp;   @item.Location.Name
+                            </p>
+
 
 
                         </div>
-                      @*  <p class="date">@item.UpdatedAt.ToString("dd MMM yyyy")</p>*@
-                        <a href="@Url.Action("DetailsUser","Inventories")?id=@item.Id">
-                            <h4>
-                                @item.Name.ToString().Substring(0, item.Name.Length <= 50 ? item.Name.Length : 50)
-                            </h4>
-                        </a>
-                        <p>
-                            Category:&nbsp;&nbsp;   @item.Category.Name<br />
-                            Location:&nbsp;&nbsp;   @item.Location.Name
-                        </p>
-                      
-                        
-
-                    </div>
-                }
-            }
+                        }
+                    }
         </div>
     </div>
 </section>
+@section scripts{
+  @*  <script src="~/UserTemp/css/jquery.easyPaginate.js"></script>*@
+    <script>
+        //$(function () {
+        //    $('#paginate').easyPaginate({
+        //        paginateElement: 'div',
+        //        elementsPerPage: 6,
+        //        effect: 'climb'
+        //    });
+        //})
+    </script>
+}

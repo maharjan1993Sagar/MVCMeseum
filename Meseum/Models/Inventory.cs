@@ -28,6 +28,7 @@ namespace Meseum.Models
         public bool DetailStatus { get; set; } = false;
         public decimal Long { get; set; }
         public decimal Latit { get; set; }
+        public decimal Altitude { get; set; }
         //public bool AudioType { get; set; }
         //public bool VideoType { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
